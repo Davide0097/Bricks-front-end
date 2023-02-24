@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1.move-right-left {
+  animation: move-right-left 15s ease-in-out infinite 4s ;
+}
+
+@keyframes move-right-left {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(20px);
+  }
+}
+
+img.move-right-leftImg {
+  animation: move-right-leftImg 18s ease-in-out infinite;
+}
+
+@keyframes move-right-leftImg {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(20px);
+  }
+}
+
