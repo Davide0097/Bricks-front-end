@@ -24,6 +24,7 @@ import { Parallax } from 'react-parallax';
 import useContentful from "../hooks/useContentfulPost"
 import useContentfulTemplates from "../hooks/useContentfulTemplates"
 import useContentfulComponents from '../hooks/useContentfulComponents'
+import useContentfulCssComponents from '../hooks/useContentfulCssComponents'
 import useContentfulAuthors from "../hooks/useContentfulAuthors"
 
 const AuthorPage = () => {
@@ -36,6 +37,7 @@ const AuthorPage = () => {
   const { getTemplates } = useContentfulTemplates();
   const { getAuthors } = useContentfulAuthors();
   const { getComponents } = useContentfulComponents();
+  const { getCssComponents } = useContentfulCssComponents();
 
   // Inizializing the state for 
   // Author(author informations), 
@@ -45,6 +47,7 @@ const AuthorPage = () => {
   // (all of them are arrays)
   const [author, setAuthor] = useState([]);
   const [components, setComponents] = useState([])
+  const [cssComponents, setCssComponents] = useState([]);
   const [templates, setTemplates] = useState([])
   const [posts, setPosts] = useState([])
   const [pic, setPic] = useState("");
@@ -54,6 +57,7 @@ const AuthorPage = () => {
   const [postCount, setPostCount] = useState(0)
   const [templatesCount, setTemplatesCount] = useState(0)
   const [componentsCount, setComponentsCount] = useState(0)
+  const [cssComponentsCount, setCssComponentsCount] = useState(0)
 
   // Use effect to set the component state equal to filtered response array, i only set the state equal to component with component author = index
   useEffect(() => {
@@ -64,6 +68,19 @@ const AuthorPage = () => {
       setComponentsCount(allComponents.length);
     })
   }, [])
+
+  // CSS-COMPONENTS 
+  useEffect(() => {
+    try {
+      getCssComponents().then(response => {
+        const allCssComponents = response.filter(component => component.componentAuthor === index);
+        setCssComponents(allCssComponents);
+        setCssComponentsCount(allCssComponents.length)
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }, []);
 
   // Use effect to set the templates state equal to filtered response array, i only set the state equal totemplates with template author = index
   useEffect(() => {
@@ -98,7 +115,7 @@ const AuthorPage = () => {
   }, [])
   return (
     <>
-      <div className="pt-28 px-2 bg-slate-900 sm:px-10 md:px-20 lg:px-40 2xl:px-[400px]">
+      <div className="pt-28 px-2 bg-slate-900 sm:px-10 md:px-20 lg:px-60 2xl:px-[400px]">
 
         {/* div with name, photo, tags, contributions*/}
         <div className="fixed m-2 p-2">
@@ -116,25 +133,21 @@ const AuthorPage = () => {
             </div>
             <div className="p-1 m-1 flex flex-col justify-center items-center">
               <img src={Bricks} alt="bricks icon" className="sm:w-24" />
-              <p className="text-white font-bold text-center text-5xl">{postCount + templatesCount + componentsCount}</p>
+              <p className="text-white font-bold text-center text-5xl">{postCount + templatesCount + componentsCount + cssComponentsCount}</p>
               <p className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600 font-bold text-center">BRICKS</p>
             </div>
           </div>
-
           <p className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 text-md sm:text-xl to-blue-600 p-1 sm:py-2">Active since:</p>
           <p className="font-bold text-white uppercase from-pink-600 text-md sm:text-xl to-blue-600 p-1 sm:py-2">{date}</p>
-
-
         </div>
-
 
         {/* div with chart */}
         <div className="grid grid-col items-center m-1 py-3 mx-2 mt-[300px] sm:mt-[420px] bg-opacity-60 backdrop-blur-lg drop-shadow-lg justify-center rounded-xl border-[1px]">
-          <PieChart postCount={postCount} templatesCount={templatesCount} componentsCount={componentsCount} />
+          <PieChart postCount={postCount} templatesCount={templatesCount} componentsCount={componentsCount} cssComponentsCount={cssComponentsCount} />
           <div className="grid grid-col">
             <div className="flex flex-row-1 justify-center items-center py-2">
               <img src={Bricks} alt="bricks icon" className="h-[40px]" />
-              <p className="font-bold text-white ml-2 text-xl sm:text-5xl to-blue-600">CONTRIBUTIONS: {postCount + templatesCount + componentsCount}</p>
+              <p className="font-bold text-white ml-2 text-xl sm:text-5xl to-blue-600">CONTRIBUTIONS: {postCount + templatesCount + componentsCount + cssComponentsCount}</p>
             </div>
             <div className="grid grid-cols-3 py-2">
               <div className="grid grid-cols-1 w-100 justify-center items-center">
@@ -147,14 +160,14 @@ const AuthorPage = () => {
               </div>
               <div className="grid grid-cols-1 w-100 justify-center items-center">
                 <p className="text-slate-300 font-bold text-center text-md  sm:text-xl">COMPONENTS</p>
-                <p className="text-white text-center text-xl sm:text-3xl">{componentsCount}</p>
+                <p className="text-white text-center text-xl sm:text-3xl">{componentsCount + cssComponentsCount}</p>
               </div>
             </div>
           </div>
         </div>
 
         {/*  Post and parallax*/}
-        <div className="grid  border-y-[1px] border-slate-300 py-4 m-1 my-1  grid-col items-center bg-opacity-40 backdrop-blur-lg drop-shadow-lg px-4">
+        <div className="grid  border-slate-300 py-4 m-1 my-1  grid-col items-center bg-opacity-40 backdrop-blur-lg drop-shadow-lg px-4">
           <Parallax bgImage={sep}
             blur={{ min: -15, max: 15 }}
             className=" h-40 lg:h-60  pt-[-10px] "
@@ -162,6 +175,9 @@ const AuthorPage = () => {
             strength={200}>
             <p className="absolute font-extrabold z-10 text-4xl uppercase sm:text-6xl p-1 text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-white pt-7 sm:pt-8">Discover how I contribute to Bricks →</p>
           </Parallax>
+          <svg aria-hidden="true" className="max-[700px]:w-10 max-[700px]:h-10 flex-shrink-0 w-16 h-16 text-slate-200 transition duration-75 group-hover:text-gray-400 dark:group-hover:text-white" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 3v18h18V3H3m15 15H6v-1h12v1m0-2H6v-1h12v1m0-4H6V6h12v6z" />
+          </svg>
           <p className="text-3xl mt-4 text-transparent bg-clip-text bg-gradient-to-r font-bold from-blue-600 to-white  sm:text-3xl">Posts uploaded:</p>
           {posts.map(post => (
             <Link to={`/BlogPost/${post.postTitle}`} key={post.postTitle} post={post} >
@@ -177,7 +193,8 @@ const AuthorPage = () => {
         </div>
 
         {/* Components */}
-        <div className="grid grid-col border-y-[1px] border-slate-300 m-1 py-4  items-center px-4  my-1 bg-opacity-40 backdrop-blur-lg drop-shadow-lg lg:py-1">
+        <div className="grid grid-col  border-slate-300 m-1 py-4 items-center px-4  my-1 bg-opacity-40 backdrop-blur-lg drop-shadow-lg lg:py-1">
+          <svg aria-hidden="true" className="max-[700px]:w-10 mt-4 ml-1 max-[700px]:h-10 flex-shrink-0 w-16 h-16 text-slate-200 transition duration-75 group-hover:text-gray-400 dark:group-hover:text-white" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
           <p className=" text-3xl text-transparent bg-clip-text bg-gradient-to-r font-bold  from-blue-600 to-white sm:text-3xl pb-2">Components uploaded:</p>
           {components.map(component => (
             <div className="flex flex-row-1" key={component.componentName}>
@@ -187,8 +204,25 @@ const AuthorPage = () => {
           ))}
         </div>
 
+        {/* CSS Components */}
+        <div className="grid grid-col  border-slate-300 m-1 py-4 items-center px-4  my-1 bg-opacity-40 backdrop-blur-lg drop-shadow-lg lg:py-1">
+          <svg aria-hidden="true" className="max-[700px]:w-10 mt-4 ml-1 max-[700px]:h-10 flex-shrink-0 w-16 h-16 text-slate-200 transition duration-75 group-hover:text-gray-400 dark:group-hover:text-white" fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+          <p className=" text-3xl text-transparent bg-clip-text bg-gradient-to-r font-bold  from-blue-600 to-white sm:text-3xl pb-2">Css components uploaded:</p>
+          {cssComponents.map(component => (
+            <div className="flex flex-row-1" key={component.componentName}>
+              <h1 className="text-slate-200 text-left text-xl p-1 sm:text-2xl">- {component.componentName}</h1>
+              {/* <p className="p-2 text-slate-200 text-md">{component.componentPreview.sys.createdAt}</p> */}
+            </div>
+          ))}
+        </div>
+
         {/* Templates */}
-        <div className="justify-center border-y-[1px] border-slate-300 m-1 py-4  items-center px-4  bg-opacity-40 backdrop-blur-lg drop-shadow-lg  lg:py-1">
+        <div className="justify-center  border-slate-300 m-1 py-4  items-center px-4  bg-opacity-40 backdrop-blur-lg drop-shadow-lg  lg:py-1">
+          <svg aria-hidden="true" className="max-[700px]:w-10 p-1 mt-4 ml-2 max-[700px]:h-10 flex-shrink-0 w-16 h-16 text-slate-200 transition duration-75 group-hover:text-gray-400 dark:group-hover:text-white" fill="white" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+            <path
+              fill="white"
+              d="M6 3h2v1H6zm3 0h2v1H9zm5 0v4h-3V6h2V4h-1V3zM5 6h2v1H5zm3 0h2v1H8zM3 4v2h1v1H2V3h3v1zm3 5h2v1H6zm3 0h2v1H9zm5 0v4h-3v-1h2v-2h-1V9zm-9 3h2v1H5zm3 0h2v1H8zm-5-2v2h1v1H2V9h3v1zm12-9H1v14h14V1zm1-1v16H0V0h16z"
+            />                           </svg>
           <p className="text-2xl text-transparent bg-clip-text bg-gradient-to-r font-bold  from-blue-600 to-white sm:text-3xl">Templates uploaded:</p>
           {templates.map(template => (
             <div key={template.templateTitle}>
@@ -196,8 +230,6 @@ const AuthorPage = () => {
             </div>
           ))}
         </div>
-
-
 
         {/* Author info */}
         <div className="grid grid-col items-center px-4 py-3 bg-opacity-40 backdrop-blur-lg drop-shadow-lg pb-40 ">

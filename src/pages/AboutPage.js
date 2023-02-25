@@ -42,7 +42,7 @@ const AboutPage = () => {
         </h1>
         <h1 className=" text-slate-500 text-4xl md:text-7xl text-center font-semibold m-2"><b>FASTER.</b>
         </h1>
-        <h1 className=" text-slate-400 text-5xl md:text-9xl text-center font-semibold m-1"><b>TOGHETER</b>
+        <h1 className=" text-slate-400 text-5xl md:text-9xl text-center font-semibold m-1"><b>TOGETHER</b>
         </h1>
       </div>
 
@@ -79,7 +79,7 @@ const AboutPage = () => {
               Yes but...
             </h3>
             <h3 className="mt-4 text-3xl leading-8 font-extrabold py-2 my-2 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-white  sm:text-4xl sm:leading-10">
-              Why Bricks is different ?
+              Why is Bricks different ?
             </h3>
             <p className="mt-4 max-w-5xl text-xl leading-7 text-gray-200 lg:mx-auto">
               How does Bricks differentiate itself from the many resources, libraries, and projects available online ?<br />

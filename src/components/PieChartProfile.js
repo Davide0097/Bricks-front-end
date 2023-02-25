@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Chart from "chart.js/auto";
 import { Pie } from "react-chartjs-2";
 
-const labels = ["BLOG POSTS", "TEMPLATES", "COMPONENTS", "CSS COMPONENTS"];
+const labels = ["BLOG POSTS", "TEMPLATES", "TAILWIND COMPONENTS", "CSS COMPONENTS"];
 
 const PieChart = (props) => {
 
