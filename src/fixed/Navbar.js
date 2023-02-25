@@ -50,7 +50,7 @@ const Navbar = () => {
         <div>
 
             {/* Banner */}
-            <Link to={"/BricksHub"}>
+            <Link to={"/Login"}>
                 <div className="bg-black w-screen px-4 md:px-40 lg:px-40 2xl:px-[400px] fixed z-[20] ">
                     <h1 className="text-white text-2xl float-left p-2 ml-2">Bricks Hub</h1>
                     <h1 className="text-slate-300 text-bold float-right max-[395px]:hidden p-4">Try <b>Bricks hub, </b>the contributors dashbord →</h1>
