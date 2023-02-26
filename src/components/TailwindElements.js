@@ -1,5 +1,7 @@
 // Overview: component rendered in the components page to show tailwind components
 
+// Component preview
+import ComponentPreview from './CodePreview'
 
 // Use effect e useState
 import { useEffect, useState, useRef } from 'react'
@@ -105,6 +107,7 @@ const TailwindElements = () => {
                         onChange={(event) => setSearchTerm(event.target.value)}
                     />
                 </div>
+
                 {/* Buttons */}
                 <div>
                     <button onClick={() => setSearchTerm("")} className="w-18 bg-white m-2 font-semibold -translate-y-1 rounded-md  mt-10 border-[1px] border-slate-300  hover:border-black">
@@ -161,6 +164,7 @@ const TailwindElements = () => {
                                     <p className="bg-slate-100  font-bold float-right m-2 border-[1px] text-sm p-1 rounded-md text-slate-500">TAILWIND</p>
                                     <h1 className="font-bold mt-8 p-1" >{component.componentName}</h1>
                                     <h1 className="text-slate-700 p-1" >{component.componentDescription}</h1>
+                                    {/* <ComponentPreview componentCode={component.componentCode} className="w-[300px]" />  */}
                                     <div className="w-100 flex flex-col mt-8 justify-center items-center" >
                                         <Link to={`/AuthorPage/${component.componentAuthor}`} key={component.componentAuthor} component={component}  >
                                             <div className="w-100 flex flex-row justify-center items-center">
@@ -181,14 +185,15 @@ const TailwindElements = () => {
                             <div ref={myDiv} className="w-100 px-3 sm:px-4 py-10 border-[1px] border-black bg-slate-900 grid grid-cols-1 lg:grid-cols-2 rounded-xl">
                                 <div className="p-2">
                                     <div>
-                                        <p className='text-2xl text-left font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600 mb-3'>Preview &darr;</p>
+                                        <p className='text-2xl text-left font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600 mb-3 uppercase ml-1'>live Preview &darr;</p>
                                     </div>
-                                    <img className="object-cover object-center w-[300px] sm:w-[500px] rounded-lg"
-                                        src={selectedComponent.componentPreview.fields.file.url} alt="component preview" />
+                                    {/* <img className="object-cover object-center w-[300px] sm:w-[500px] rounded-lg"
+                                        src={selectedComponent.componentPreview.fields.file.url} alt="component preview" /> */}
+                                    <ComponentPreview componentCode={selectedComponent.componentCode} className="w-[320px]" />
                                 </div>
                                 <div className="p-2">
                                     <div className="w-[300px] sm:w-[500px]">
-                                        <p className='text-2xl text-left font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'>Code &darr;</p>
+                                        <p className='my-1 text-2xl text-left font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600 uppercase ml-1'>Code &darr;</p>
                                         <Code content={selectedComponent.componentCode}>{selectedComponent.componentCode}</Code>
                                     </div>
                                     <Link to={`/AuthorPage/${selectedComponent.componentAuthor}`} key={selectedComponent.componentAuthor} selectedComponent={selectedComponent}  >
@@ -203,7 +208,7 @@ const TailwindElements = () => {
                                         <p className="text-white group-hover:text-blue-600 font-semibold  px-4">back</p>
                                     </button>
                                 </div>
-                                </div>
+                            </div>
                         )}
                     </>
                 )}

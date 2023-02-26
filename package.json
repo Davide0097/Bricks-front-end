@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@codesandbox/sandpack-react": "^2.0.17",
+    "@codesandbox/sandpack-themes": "^2.0.1",
     "@contentful/rich-text-react-renderer": "^15.16.2",
     "@contentful/rich-text-types": "^16.0.2",
     "@formspree/react": "^2.4.1",
@@ -16,7 +18,7 @@
     "react": "^18.2.0",
     "react-chartjs-2": "^5.1.0",
     "react-dom": "^18.2.0",
-    "react-markdown": "^8.0.4", 
+    "react-markdown": "^8.0.4",
     "react-parallax": "^3.5.1",
     "react-router-dom": "^6.4.5",
     "react-scripts": "5.0.1",

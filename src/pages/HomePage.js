@@ -115,7 +115,7 @@ const HomePage = () => {
             {/* Authors Showcase */}
             <div className='mt-1 max-h-[130px] -translate-y-6 overflow-auto mb-20 author-showcase'>
               {(authors && authors.map((author) => (
-                <div className='my-1 flex flex-row justify-center items-center'>
+                <div key={author.authorName} className='my-1 flex flex-row justify-center items-center'>
                   <img className='rounded-full w-8 h-8 sm:h-10 sm:w-10 object-cover p-1 m-1' src={author.authorImg.fields.file.url} alt="profile pic"></img>
                   <p className='font-bold px-2 text-slate-500 text-2xl text-center'>{author.authorName}</p>
                 </div>
