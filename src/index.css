@@ -28,3 +28,12 @@ img.move-right-leftImg {
   }
 }
 
+.author-showcase::-webkit-scrollbar {
+  width: 6px;
+  background-color: #f5f5f5;
+}
+ 
+.author-showcase::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #888;
+}

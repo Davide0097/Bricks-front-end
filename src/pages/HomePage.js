@@ -15,16 +15,55 @@ import ContactForm from '../components/EmailForm';
 // React link
 import { Link } from 'react-router-dom'
 
+// Contentful authors
+import useContentfulAuthors from "../hooks/useContentfulAuthors"
+
 // Use effect, useState
 import React, { useState, useEffect } from 'react';
+
+
 
 const HomePage = () => {
 
   const [showForm, setShowForm] = useState(false)
+  const { getAuthors } = useContentfulAuthors();
+  const [authors, setAuthors] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [showForm]);
+
+  const handleScroll = () => {
+    const showcase = document.querySelector('.author-showcase');
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (showcase && scrollIndicator) {
+      const { scrollTop, scrollHeight, clientHeight } = showcase;
+      const scrollRatio = scrollTop / (scrollHeight - clientHeight);
+      const scrollIndicatorHeight = 50; // Adjust this to match your desired scrollbar indicator height
+      const scrollIndicatorY = scrollRatio * (clientHeight - scrollIndicatorHeight);
+      scrollIndicator.style.transform = `translateY(${scrollIndicatorY}px)`;
+    }
+  };
+
+  useEffect(() => {
+    const showcase = document.querySelector('.author-showcase');
+    showcase.addEventListener('scroll', handleScroll);
+    return () => showcase.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Use effect to get the authors information with author.authorName = index
+  useEffect(() => {
+
+    try {
+      getAuthors().then((response) =>
+        setAuthors(response));
+      console.log(authors)
+
+    } catch (error) {
+      console.log("my message: error getting templates in TemplatesPage.js")
+      console.error(error)
+    }
+  }, [])
 
   return (
     <div>
@@ -56,20 +95,37 @@ const HomePage = () => {
             </button>
             </Link>
             <Link to="/ComponentPage">
-              <button className="border-[1px] border-black m-2 rounded-3xl bg-white h-[50px] w-[180px] hover:bg-black hover:border-[2px] group hover:border-white"><p className="group-hover:text-white group-hover:font-bold" >Components →</p>
+              <button className="border-[1px] border-black m-2 rounded-3xl bg-white h-[50px] w-[180px] hover:bg-black hover:border-[2px] group hover:border-white">
+                <p className="group-hover:text-white group-hover:font-bold" >Components →</p>
               </button>
             </Link>
           </div>
         </div>
       </div>
 
-      {/* Cards for Bricks Hub*/}
+      {/* Cards for Bricks Hub and author showcase*/}
       <Link to={"/BricksHub"}>
         <div className='bg-slate-100 py-4 sm:py-6 border-[1px]'>
           <h3
-            className="uppercase font-bold text-transparent sm:px-20 my-20 lg:mt-28 2xl:m-20 h-[200px] sm:h-[390px] md:h-[260px] 2xl:h-[170px] bg-clip-text bg-gradient-to-r from-pink-600  to-blue-600 text-4xl sm:text-6xl  text-center mt-20 tracking-thight">
+            className="uppercase font-bold text-transparent sm:px-20 mb-10 lg:mt-28 2xl:m-20 h-[200px] sm:h-[390px] md:h-[260px] 2xl:h-[170px] bg-clip-text bg-gradient-to-r from-pink-600  to-blue-600 text-4xl sm:text-6xl  text-center mt-20 tracking-thight">
             Become a part of our growing community with <b>Brickshub.</b>
           </h3>
+          <div>
+
+            {/* Authors Showcase */}
+            <div className='mt-1 max-h-[130px] -translate-y-6 overflow-auto mb-20 author-showcase'>
+              {(authors && authors.map((author) => (
+                <div className='my-1 flex flex-row justify-center items-center'>
+                  <img className='rounded-full w-8 h-8 sm:h-10 sm:w-10 object-cover p-1 m-1' src={author.authorImg.fields.file.url} alt="profile pic"></img>
+                  <p className='font-bold px-2 text-slate-500 text-2xl text-center'>{author.authorName}</p>
+                </div>
+              )))}
+            </div>
+
+          </div>
+
+
+
           <div className="2xl:px-60 grid grid-cols-10 gap-4  px-4 sm:px-20 bg-slate-100 ">
             <div
               className="col-span-4 max-[900px]:col-span-10 col-rows-2  row-span-2  rounded-xl w-100 border-[1px] text-center cursor-pointer bg-white sm:py-20 ">

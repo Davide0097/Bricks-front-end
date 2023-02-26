@@ -270,7 +270,7 @@ function Dashbord({ author, pic, postCount, templatesCount, componentsCount, css
                                 <h1 className="text-slate-400 font-bold text-md px-1">Author desciption</h1>
                                 <h1 className="text-slate-100 font-bold text-md  p-1 mb-6">{author.authorDescription}</h1>
                                 <h1 className="text-slate-400 font-bold text-md px-1">Profile Image</h1>
-                                <img src={profilePic} alt="tailwind component Author Preview" className="mb-6 w-[100px] h-[100px] rounded-[500px]" />
+                                <img src={profilePic} alt="tailwind component Author Preview" className="mb-6 mt-2 h-[100px] w-[100px] rounded-full object-cover" />
                                 <a rel="noreferrer" target="_blank" href={author.authorInstagram}>
                                     <h1 className="text-slate-400 font-bold text-md px-1 underline">Instagram</h1>
                                 </a>

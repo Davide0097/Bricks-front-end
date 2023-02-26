@@ -28,12 +28,17 @@ import BricksHub from './pages/BricksHub'
 import RequirmentsPage from "./pages/RequirmentsPage"
 import PageNotFound from './pages/PageNotFound';
 
+// Cookies
+import CookiesModal from './components/CookiesModal';
+
+
 function App() {
 
   const { user } = useUserContext()
 
   return (
     <div className="App">
+      <CookiesModal />
       <BrowserRouter>
         <ScrollToTop />
         <Navbar />

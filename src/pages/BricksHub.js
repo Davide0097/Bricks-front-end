@@ -162,7 +162,7 @@ const BricksHub = () => {
 
             {/* SideBar */}
             <div className='bg-slate-800 md:w-[170px] flex flex-col items-center '>
-               {pic && <><img src={pic} alt="tailwind component Author Preview" className="max-[700px]:hidden mt-5 rounded-[500px] mb-5 h-[100px] w-[100px]" /></>}
+               {pic && <><img src={pic} alt="tailwind component Author Preview" className="max-[700px]:hidden mt-5  mb-5 h-[100px] w-[100px] rounded-full object-cover p-1 m-1" /></>}
                <ul className="space-y-1">
                   <li>
                      <button onClick={() => setSelectedButton('button1')} className="md:w-[170px] px-2 flex  items-center py-3 text-lg font-normal text-slate-200 hover:bg-slate-900 ">
