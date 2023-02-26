@@ -59,7 +59,7 @@ const PostDashbord = ({ posts, filteredSubmissionsPost, postCount, onSelectedBut
 
                   <div className='flex flex-col justify-center items-center'>
                      <h1 className="text-slate-400  text-md md:py-6 p-2 md:px-14"><b>Welcome, </b>It seems that there are currently <b>no published posts</b> visible on the dashboard. <br /><br />
-                        If you have already submitted a post, please check back later. Otherwise, consider creating a new component to share with your audience.</h1>
+                        If you have already submitted a post, please check back later. Otherwise, consider creating a new post to share with your audience.</h1>
                   </div>
 
                   : (

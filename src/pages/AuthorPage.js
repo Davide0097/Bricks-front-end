@@ -141,9 +141,11 @@ const AuthorPage = () => {
           <p className="font-bold text-white uppercase from-pink-600 text-md sm:text-xl to-blue-600 p-1 sm:py-2">{date}</p>
         </div>
 
-        {/* div with chart */}
+        {/* div with chart */} 
         <div className="grid grid-col items-center m-1 py-3 mx-2 mt-[300px] sm:mt-[420px] bg-opacity-60 backdrop-blur-lg drop-shadow-lg justify-center rounded-xl border-[1px]">
-          <PieChart postCount={postCount} templatesCount={templatesCount} componentsCount={componentsCount} cssComponentsCount={cssComponentsCount} />
+        
+            <PieChart postCount={postCount} templatesCount={templatesCount} componentsCount={componentsCount} cssComponentsCount={cssComponentsCount} />
+            
           <div className="grid grid-col">
             <div className="flex flex-row-1 justify-center items-center py-2">
               <img src={Bricks} alt="bricks icon" className="h-[40px]" />
@@ -184,7 +186,9 @@ const AuthorPage = () => {
               <div className="">
                 <div className="flex flex-row-1 items-center">
                   <h1 className="text-slate-200 text-left text-xl p-1 sm:text-2xl">-  {post.postTitle} </h1>
-                  <p className="ml-3 font-semibold text-sm text-slate-200 bg-blue-600 rounded-md  px-2 py-1 sm:text-xl">READ →</p>
+                  <button className="ml-3 bg-blue-600 w-[180px]  rounded-md  ">
+                    <p className=" font-semibold text-sm text-slate-200 text-center px-4 py-1 sm:text-xl">READ</p>
+                  </button>
                 </div>
                 <div className="flex flex-row-1">
                   <h1 className="p-1 text-slate-400 text-center text-md sm:text-1xl">{post.postDate}</h1>    </div></div>

@@ -19,6 +19,9 @@ function ComponentForm() {
     const [error, setError] = useState(null);
 
 
+    // State delcaration for track when the form is submitted
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
     const handlePost = async (e) => {
 
         if (!user) {
@@ -50,6 +53,7 @@ function ComponentForm() {
             console.log(error)
             dispatch2({ type: 'CREATE_SUBMISSION', payload: json })
             console.log("messo nuovo component in submissions", json)
+            setIsSubmitted(true);
         }
     }
 
@@ -58,6 +62,20 @@ function ComponentForm() {
         <>
             <form onSubmit={handlePost} className="flex flex-col  p-2" target="_blank" action="https://mailthis.to/buildthewebfaster@gmail.com" method="POST" encType="multipart/form-data">
 
+                {/* Confirmation modal */}
+                {isSubmitted && (
+                    <div className="fixed top-0 left-0 right-0 bottom-0 z-50 flex items-center justify-center">
+                        <div className="absolute top-0 left-0 right-0 bottom-0 bg-black opacity-50"></div>
+                        <div className="bg-white p-8 rounded-md">
+                            <h2 className="text-lg font-semibold mb-4">Form submitted!</h2>
+                            <p className="text-md">
+                                Thank you for submitting the component. We will review
+                                it shortly.
+                            </p>
+                        </div>
+                    </div>
+                )}
+                
                 {/* Component title */}
                 <p className='font-semibold text-slate-100 text-lg p-1'>Component title</p>
                 <p className='font-semibold text-slate-400 text-md pb-1'>* The title of your Component</p>
@@ -83,6 +101,7 @@ function ComponentForm() {
                 <input type="hidden" name="User email" value={user.blogname} />
                 <input type="hidden" name="By:" value={user.email} />
                 <input type="hidden" name="_subject" value="New component submitted" />
+                <input type="hidden" name="_after" value="https://bricks-platform.com" />
 
                 <button
                     className="h-[37px] rounded-md w-[70px] mt-2  bg-blue-600 hover:bg-white hover:border-[1px] group hover:border-blue-600 ">

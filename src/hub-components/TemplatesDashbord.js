@@ -63,9 +63,7 @@ const PostDashbord = ({ templates, filteredSubmissionsTemplates, templatesCount,
                      <div className='ml-4 mt-1 bg-green-500 rounded-[140px]'>
                         <p className="max-[400px]:hidden font-semibold text-slate-800 text-sm px-3 ">Online</p>
                      </div>
-                     <div className='ml-3 mt-1 bg-slate-800 rounded-[140px] border-slate-400 border-[1px]'>
-                        <p className="font-semibold text-slate-400 text-sm px-3 ">Read</p>
-                     </div>
+                    
                      <button onClick={() => {
                         setShowFormTemplate(true)
                         setSelectedTemplate(template);
