@@ -9,7 +9,7 @@ import Logo from '../media/logoBlog.png'
 import Search from "../media/search.png"
 
 // Component code
-import Code from "../components/Code"
+import CssComponentPreview from '../components/CssCodePreview'
 
 // Contentful Css component
 import useContentfulCssComponents from '../hooks/useContentfulCssComponents'
@@ -173,33 +173,36 @@ const CssElements = () => {
                             ))}
                         </div>
 
+
                         {/* Full page div */}
                         {showFullPage && (
-                            <div ref={myDiv} className="w-100 px-3 sm:px-4 py-10 border-[1px] border-black bg-slate-900 grid grid-cols-1 lg:grid-cols-2 rounded-xl">
-                                <div className="p-2">
-                                    <div>
-                                        <p className='text-2xl text-left font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600 mb-3'>Preview &darr;</p>
-                                    </div>
-                                    <img className="object-cover object-center w-[300px] sm:w-[500px] rounded-lg"
-                                        src={selectedComponent.componentPreview.fields.file.url} alt="component preview" />
+                            <div ref={myDiv} className="p-3 bg-slate-900 rounded-xl">
+
+                                <div className="p-2 w-[340px] sm:w-[500px] md:w-[800px] xl:w-[1280px]">
+                                    <p className='text-2xl text-left font-bold p-1
+                                        text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600 
+                                         uppercase'>Editor and Preview &darr;</p>
+                                    <CssComponentPreview componentCode={selectedComponent.componentCode} componentCssCode={selectedComponent.componentCss} className="" />
                                 </div>
-                                <div className="p-2">
-                                    <div className="w-[300px] sm:w-[500px]">
-                                        <p className='text-2xl text-left font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'>Code &darr;</p>
-                                        <Code content={selectedComponent.componentCode}>{selectedComponent.componentCode}</Code>
-                                    </div>
-                                    <Link to={`/AuthorPage/${selectedComponent.componentAuthor}`} key={selectedComponent.componentAuthor} selectedComponent={selectedComponent}  >
-                                        <div className='mt-3 px-2'>
-                                            <img src={selectedComponent.componentAuthorImg.fields.file.url} alt="tailwind component Author Preview" className="w-[40px] float-right h-[40px] m-3  rounded-[500px]" />
-                                            <p className='text-md sm:text-2xl text-right font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600 mb-1'>by {selectedComponent.componentAuthor}</p>
-                                            <p className='text-sm sm:text-md text-right font-bold text-slate-200 mb-3'>MORE ABOUT THE AUTHOR HERE</p>
+
+                                <div className="p-2 w-[340px] sm:w-[500px] md:w-[800px] xl:w-[1280px]">
+                                    <div className='grid grid-cols-1'>
+                                        <div className="">
+                                            <Link to={`/AuthorPage/${selectedComponent.componentAuthor}`} key={selectedComponent.componentAuthor} selectedComponent={selectedComponent}  >
+                                                <div className='mt-3 px-2'>
+                                                    <img src={selectedComponent.componentAuthorImg.fields.file.url} alt="tailwind component Author Preview" className="w-[40px] float-right h-[40px] m-3  rounded-[500px]" />
+                                                    <p className='text-md sm:text-2xl text-right font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600 mb-1'>by {selectedComponent.componentAuthor}</p>
+                                                    <p className='text-sm sm:text-md text-right font-bold text-slate-200 mb-3'>READ MORE ABOUT THE AUTHOR</p>
+                                                </div>
+                                            </Link>
                                         </div>
-                                    </Link>
+                                    </div>
                                     <button onClick={() => { setShowFullPage(false); resetRef(); }}
-                                        className="h-[37px] my-6 float-right rounded-md w-18 -translate-y-1 bg-blue-600 hover:bg-white hover:border-[1px] group hover:border-blue-600">
+                                        className="h-[37px] my-6 rounded-md w-18 -translate-y-1 bg-blue-600 hover:bg-white hover:border-[1px] group hover:border-blue-600">
                                         <p className="text-white group-hover:text-blue-600 font-semibold  px-4">back</p>
                                     </button>
                                 </div>
+
                             </div>
                         )}
                     </>

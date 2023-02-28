@@ -33,10 +33,10 @@ const Footer = () => {
         <div className="max-w-[250px] p-2 col-span-4 sm:col-span-1 ">
           <h1 className="text-slate-900 font-medium">Bricks Hub</h1>
           <Link to="/Signup">
-            <p className="text-slate-500  p-1 cursor-pointer hover:text-slate-700"> Signup</p>
+            <p className="text-slate-500  p-1 cursor-pointer hover:text-slate-700"> Sign up</p>
           </Link>
           <Link to="/Login">
-            <p className="text-slate-500 p-1 cursor-pointer hover:text-slate-700"> Login </p>
+            <p className="text-slate-500 p-1 cursor-pointer hover:text-slate-700"> Log in </p>
           </Link>
           <Link to="/RequirmentsPage">
             <p className="text-slate-500 p-1 cursor-pointer hover:text-slate-700"> Before publishing </p>

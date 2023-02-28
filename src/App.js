@@ -27,6 +27,7 @@ import Signup from './pages/Signup';
 import BricksHub from './pages/BricksHub'
 import RequirmentsPage from "./pages/RequirmentsPage"
 import PageNotFound from './pages/PageNotFound';
+import SiteBuilder from './pages/SiteBuilder'; 
 
 // Cookies
 import CookiesModal from './components/CookiesModal';
@@ -51,6 +52,7 @@ function App() {
           <Route path='/AboutPage' element={<AboutPage />}></Route>
           <Route path='/AuthorPage/:index' element={<AuthorPage />}></Route>
           <Route path='/RequirmentsPage' element={<RequirmentsPage />}></Route>
+          <Route path='/SiteBuilder' element={<SiteBuilder />}></Route> 
 
           {/* if we have user we directly go to creator hub if we dont have user we go to login */}
           <Route path='/BricksHub' element={user ? <BricksHub /> : <Login />}></Route>

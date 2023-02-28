@@ -104,7 +104,7 @@ const AboutPage = () => {
               <Link className="w-[250px] font-semibold my-2 px-6 mt-12 py-3 rounded-md  border-[1px] border-slate-100 hover:border-black hover:bg-black group"
                 to={"/BricksHub"}><button
                 >
-                  <p className="text-slate-200 text-2xl font-bold group-hover:text-white group-hover:font-bold ">Signup here!</p>
+                  <p className="text-slate-200 text-2xl font-bold group-hover:text-white group-hover:font-bold ">Sign up here!</p>
                 </button></Link>
             </div>
           </div>
@@ -229,7 +229,7 @@ const AboutPage = () => {
 
                     <Link className="w-[250px] font-semibold my-2 px-6  py-3 rounded-md  border-[1px] border-slate-100 hover:border-black hover:bg-black group"
                       to={"/BricksHub"}>
-                      <p className="text-slate-200 text-2xl text-center font-bold group-hover:text-white group-hover:font-bold ">Signup here!</p>
+                      <p className="text-slate-200 text-2xl text-center font-bold group-hover:text-white group-hover:font-bold ">Sign up here!</p>
                     </Link>
                     <button onClick={() => {
                       setShowForm(true);

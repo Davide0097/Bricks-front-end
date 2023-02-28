@@ -17,17 +17,23 @@ import { Link } from 'react-router-dom'
 
 // Contentful authors
 import useContentfulAuthors from "../hooks/useContentfulAuthors"
+import useContentful from "../hooks/useContentfulPost"
+import useContentfulComponents from '../hooks/useContentfulComponents'
 
 // Use effect, useState
 import React, { useState, useEffect } from 'react';
 
-
-
 const HomePage = () => {
+
 
   const [showForm, setShowForm] = useState(false)
   const { getAuthors } = useContentfulAuthors();
+  const { getPosts } = useContentful();
+  const { getComponents } = useContentfulComponents();
+
   const [authors, setAuthors] = useState([]);
+  const [posts, setPosts] = useState([])
+  const [components, setComponents] = useState(0)
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -53,14 +59,35 @@ const HomePage = () => {
 
   // Use effect to get the authors information with author.authorName = index
   useEffect(() => {
-
     try {
       getAuthors().then((response) =>
         setAuthors(response));
-      console.log(authors)
+      console.log(authors);
 
     } catch (error) {
-      console.log("my message: error getting templates in TemplatesPage.js")
+      console.log("my message: error getting templates in homePage.js")
+      console.error(error)
+    }
+  }, [])
+
+
+  useEffect(() => {
+    try {
+      getPosts().then((response) =>
+        setPosts(response));
+    } catch (error) {
+      console.log("my message: error getting posts in homePage.js")
+      console.error(error)
+    }
+  }, [])
+
+
+  useEffect(() => {
+    try {
+      getComponents().then((response) =>
+        setComponents(response));
+    } catch (error) {
+      console.log("my message: error getting components in homePage.js")
       console.error(error)
     }
   }, [])
@@ -83,7 +110,7 @@ const HomePage = () => {
         <div className="flex flex-col justify-center items-center">
           <img src={Logo} alt="blog Logo" className="sm:mt-20 w-[300px]" />
           <h3
-            className="uppercase font-bold text-transparent md:px-60 h-[240px] 2xl:h-[120px] bg-clip-text bg-gradient-to-r from-pink-600 px-10 to-blue-600 text-5xl sm:text-7xl  text-center mt-2 tracking-thight">
+            className="uppercase font-bold text-transparent md:px-60 h-[240px] 2xl:h-[160px] bg-clip-text bg-gradient-to-r from-pink-600 px-10 to-blue-600 text-5xl sm:text-7xl  text-center mt-2 tracking-thight">
             Speed up your deployment
           </h3>
           <p className=" px-2 text-slate-500 text-2xl text-center"><b>BUILD THE WEB FASTER. </b>Browse around beautiful <b> Templates
@@ -106,25 +133,55 @@ const HomePage = () => {
       {/* Cards for Bricks Hub and author showcase*/}
       <Link to={"/BricksHub"}>
         <div className='bg-slate-100 py-4 sm:py-6 border-[1px]'>
-          <h3
-            className="uppercase font-bold text-transparent sm:px-20 mb-10 lg:mt-28 2xl:m-20 h-[200px] sm:h-[390px] md:h-[260px] 2xl:h-[170px] bg-clip-text bg-gradient-to-r from-pink-600  to-blue-600 text-4xl sm:text-6xl  text-center mt-20 tracking-thight">
+
+          <h3 className="uppercase font-bold text-transparent  
+          h-[200px] sm:h-[390px] md:h-[260px] 2xl:h-[170px] 
+          bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600 
+          text-4xl sm:text-6xl 
+          sm:px-20 lg:mt-28 2xl:m-20 text-center mt-20 tracking-thight">
             Become a part of our growing community with <b>Brickshub.</b>
           </h3>
-          <div>
 
-            {/* Authors Showcase */}
-            <div className='mt-1 max-h-[130px] -translate-y-6 overflow-auto mb-20 author-showcase'>
-              {(authors && authors.map((author) => (
-                <div key={author.authorName} className='my-1 flex flex-row justify-center items-center'>
-                  <img className='rounded-full w-8 h-8 sm:h-10 sm:w-10 object-cover p-1 m-1' src={author.authorImg.fields.file.url} alt="profile pic"></img>
-                  <p className='font-bold px-2 text-slate-500 text-2xl text-center'>{author.authorName}</p>
-                </div>
-              )))}
+          {/* Section*/}
+          <div className='w-full -translate-y-6 flex flex-col pb-4 pt-10 lg:py-1 lg:flex md:flex-row mb-10 justify-center items-center'>
+
+            {/* Compoents */}
+            <div>
+              <h1 className='p-4 font-bold px-2 text-3xl text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'> {components.length} components</h1>
+              <div className='mt-1 h-[300px] w-[300px] overflow-auto author-showcase'>
+                {(components && components.map((component) => (
+                  <div key={component.componentName} className='my-1 flex flex-row justify-center items-center hover:bg-slate-300'>
+                    <p className='font-bold px-2 text-slate-500 text-xl text-center'>- {component.componentName}</p>
+                  </div>
+                )))}
+              </div>
             </div>
 
+            {/* Authors */}
+            <div>
+              <h1 className='p-4 font-bold px-2 text-3xl text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'> {authors.length} contributors</h1>
+              <div className='mt-1 h-[300px] w-[300px] overflow-auto author-showcase'>
+                {(authors && authors.map((author) => (
+                  <div key={author.authorName} className='flex flex-row justify-center items-center hover:bg-slate-300'>
+                    <img className='rounded-full w-8 h-8 sm:h-10 sm:w-10 object-cover p-1 m-1' src={author.authorImg.fields.file.url} alt="profile pic"></img>
+                    <p className='font-bold px-2 text-slate-500 text-xl text-center'>{author.authorName}</p>
+                  </div>
+                )))}
+              </div>
+            </div>
+
+            {/* Blog Articles */}
+            <div>
+              <h1 className='p-4 font-bold px-2 text-3xl text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'> {posts.length} posts</h1>
+              <div className='mt-1 h-[300px] w-[300px] overflow-auto author-showcase'>
+                {(posts && posts.map((post) => (
+                  <div key={post.postTitle} className='my-1 flex flex-row justify-center items-center hover:bg-slate-300'>
+                    <p className='font-bold px-2 text-slate-500 text-xl text-center'>- {post.postTitle}</p>
+                  </div>
+                )))}
+              </div>
+            </div>
           </div>
-
-
 
           <div className="2xl:px-60 grid grid-cols-10 gap-4  px-4 sm:px-20 bg-slate-100 ">
             <div
@@ -145,7 +202,7 @@ const HomePage = () => {
             <div className="max-[900px]:col-span-10 col-span-3  bg-white rounded-xl text-center flex flex-col justify-center items-center  p-2 border-[1px] cursor-pointer ">
               <img className="w-[270px] p-2" alt="Login card" src={LoginCard} />
               <h1 className="text-slate-700 text-2xl font-mono p-2">Create your account</h1>
-              <p className="text-slate-500 text-xl p-2 font-mono">Signup and Login function.</p>
+              <p className="text-slate-500 text-xl p-2 font-mono">Sign up and Log in function.</p>
             </div>  <div
               className="max-[900px]:col-span-10 col-span-3 bg-white text-center rounded-xl border-[1px] cursor-pointer overflow-hidden p-2">
               <p className="bg-slate-100 w-12 font-bold float-right  border-[1px] text-sm text-slate-500">BETA</p>

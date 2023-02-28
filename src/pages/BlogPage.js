@@ -71,7 +71,7 @@ const BlogPage = () => {
                 <img src={Logo} alt="blog Logo" className="w-[25px] h-[25px] mr-1" />
                 <h1 className="-translate-x-2  p-1 font-bold cursor-pointer text-left text-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600">BRICKS</h1>
             </div>
-            <h1 className=" text-slate-500 text-2xl text-center font-semibold m-4">Unlock the full potential of web development, discover our guides, build the web, <b>Faster.</b>
+            <h1 className=" text-slate-500 text-2xl text-center font-semibold m-4">Unlock the full potential of web development. Discover our guides. Build the web <b>faster.</b>
             </h1>
 
             {/* Searchbar */}

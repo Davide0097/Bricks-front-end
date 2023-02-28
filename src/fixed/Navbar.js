@@ -51,14 +51,14 @@ const Navbar = () => {
 
             {/* Banner */}
             <Link to={"/Login"}>
-                <div className="bg-black w-screen px-4 md:px-40 lg:px-40 2xl:px-[400px] fixed z-[20] ">
+                <div className="bg-black w-screen px-4 md:px-40 lg:px-40 min-[1660px]:px-[400px] fixed z-[20] ">
                     <h1 className="text-white text-2xl float-left p-2 ml-2  max-[530px]:hidden">Bricks Hub</h1>
                     <h1 className="text-slate-300 text-bold float-right max-[530px]:text-sm p-4">Try <b>Bricks hub, </b>the contributors dashbord →</h1>
                 </div>
             </Link>
 
             {/* Navbar che sparisce a 1000*/}
-            <div id="navbar" className="w-screen  max-[1000px]:hidden px- md:px-40 lg:px-40 2xl:px-[400px] mt-[51px] h-[80px] fixed py-1 z-[20] justify-center bg-opacity-40 backdrop-blur-lg drop-shadow-lg">
+            <div id="navbar" className="w-screen  max-[1000px]:hidden px- md:px-40 lg:px-40 min-[1660px]:px-[400px] mt-[51px] h-[80px] fixed py-1 z-[20] justify-center bg-opacity-40 backdrop-blur-lg drop-shadow-lg">
                 <div className="ml-4 grid grid-cols-12 content-center h-[80px]">
                     <Link className='flex ' to="/">
                         <img src={Logo} alt="blog Logo" className="w-[25px] h-[25px] mr-1 " />
@@ -90,7 +90,7 @@ const Navbar = () => {
                 </div>
             </div>
 
-            <div id="navbar" className="  w-screen  max-[1000px]:hidden px- md:px-40 lg:px-40 2xl:px-[400px] mt-[51px] h-[80px] fixed py-1 z-[20] justify-center bg-opacity-40 backdrop-blur-lg drop-shadow-lg">
+            <div id="navbar" className="  w-screen  max-[1000px]:hidden px- md:px-40 lg:px-40  min-[1660px]:px-[400px] mt-[51px] h-[80px] fixed py-1 z-[20] justify-center bg-opacity-40 backdrop-blur-lg drop-shadow-lg">
                 <div className="ml-4 grid grid-cols-12 content-center h-[80px]">
                     <Link className='flex ' to="/">                    <img src={Logo} alt="blog Logo" className="w-[25px] h-[25px] mr-1 " />
                         <h1 className=" -translate-x-2  p-1 font-bold cursor-pointer text-left text-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600">BRICKS</h1> </Link>

@@ -8,18 +8,22 @@ import {
 
 import { levelUp } from "@codesandbox/sandpack-themes";
 
-function ComponentPreview({ componentCode }) {
+function CssComponentPreview({ componentCode, componentCssCode }) {
 
+    const htmlCode = componentCode;
+
+    const code = `import "./styles.css";document.getElementById("app").innerHTML = '${htmlCode}';`;
     return (
         <div>
             <SandpackProvider
-                template="react"
+                template="vanilla"
                 theme={levelUp}
                 options={{
                     externalResources: ["https://cdn.tailwindcss.com"]
                 }}
                 files={{
-                    "/App.js": `export default function App() {return <div>` + componentCode + `</div>}`,
+                    "/index.js": code,
+                    "styles.css": componentCssCode,
                 }}>
                 <SandpackLayout>
                     <SandpackCodeEditor />
@@ -30,5 +34,5 @@ function ComponentPreview({ componentCode }) {
     );
 }
 
-export default ComponentPreview;
+export default CssComponentPreview;
 
