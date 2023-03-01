@@ -186,7 +186,7 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="2xl:px-60 grid grid-cols-10 gap-4  px-4 sm:px-20 bg-slate-100 ">
+          {/* <div className="2xl:px-60 grid grid-cols-10 gap-4  px-4 sm:px-20 bg-slate-100 ">
             <div
               className="col-span-4 max-[900px]:col-span-10 col-rows-2  row-span-2  rounded-xl w-100 border-[1px] text-center cursor-pointer bg-white sm:py-20 ">
               <div className="flex flex-col justify-center items-center p-6">
@@ -221,7 +221,7 @@ const HomePage = () => {
               <img className="w-[270px]" alt="chain card" src={chain} />
               <p className="text-slate-700  text-2xl p-2 font-mono tracking-thight"> <b>Join</b> a fast growing network.</p>
             </div>
-          </div>
+          </div> */}
         </div>
       </Link>
 

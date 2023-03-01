@@ -23,7 +23,7 @@ import { useState, useEffect } from 'react';
       <h2 className="font-bold mb-2">Cookie Policy</h2>
       <p className="text-sm mb-4 font-semibold">We use cookies to provide the best experience on our website. By continuing to browse the site, you agree to our use of cookies.</p>
       <button className="bg-blue-600 text-white px-4 py-2 rounded-md mr-2" onClick={handleAccept}>Accept</button>
-      <a href="https://www.freeprivacypolicy.com/live/b080f60e-1524-44c8-bbb1-0c0dbfc8f6ac" className="text-blue-600 underline">Learn More</a>
+      <a href="https://www.freeprivacypolicy.com/live/b080f60e-1524-44c8-bbb1-0c0dbfc8f6ac" aria-label="Complete Cookies Policy Document"className="text-blue-600 underline">Read the complete document</a>
     </div>
   );
 }
