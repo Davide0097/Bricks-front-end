@@ -135,13 +135,13 @@ const HomePage = () => {
       <Link to={"/BricksHub"}>
         <div className='bg-slate-100 py-4 sm:py-6 border-[1px]'>
 
-          <h3 className="uppercase font-bold text-transparent  
+          <h1 className="uppercase font-bold text-transparent  
           h-[200px] sm:h-[390px] md:h-[260px] 2xl:h-[170px] 
           bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600 
           text-4xl sm:text-6xl 
           sm:px-20 lg:mt-28 2xl:m-20 text-center mt-20 tracking-thight">
             Become a part of our growing community with <b>Brickshub.</b>
-          </h3>
+          </h1>
 
           {/* Section*/}
           <div className='w-full -translate-y-6 flex flex-col pb-4 pt-10 lg:py-1 lg:flex md:flex-row mb-10 justify-center items-center'>
@@ -209,7 +209,7 @@ const HomePage = () => {
               <p className="text-slate-500 text-xl p-2 font-mono">Sign up and Log in function.</p>
             </div>  <div
               className="max-[900px]:col-span-10 col-span-3 bg-white text-center rounded-xl border-[1px] cursor-pointer overflow-hidden p-2">
-              <p className="bg-slate-100 w-12 font-bold float-right  border-[1px] text-sm text-slate-500">BETA</p>
+              <p className="bg-slate-100 w-12 font-bold float-right  border-[1px] text-sm text-slate-700">BETA</p>
               <h1 className="text-slate-700 text-2xl py-2 mt-10 font-mono ">Add your content</h1>
               <p className="text-slate-500 text-xl px-6"></p>
               <img alt="favorites card" className="ml-28  w-[240px] h-[240px]" src={Fav} />
@@ -219,7 +219,7 @@ const HomePage = () => {
               <img className="w-[270px] h-[270px] object-cover" alt="todo card" src={todo} />
             </div>
             <div className=" max-[900px]:col-span-10 col-span-3  bg-white text-center rounded-xl cursor-pointer py-4 border-[1px] flex flex-col justify-center items-center">
-              <img className="w-[270px] h-[200px] " alt="chain card" src={chain} />
+              <img className="w-[300px] h-[200px] " alt="chain card" src={chain} />
               <p className="text-slate-700  text-2xl p-2 font-mono tracking-thight"> <b>Join</b> a fast growing network.</p>
             </div>
           </div>
@@ -234,17 +234,17 @@ const HomePage = () => {
         <div className="flex flex-col items-center">
           <div>
             <h1 className="hidden sm:flex md:ml-[300px] text-2x font-semibold text-4xl text-transparent bg-clip-text bg-gradient-to-r from-slate-300 p-2 to-slate-400">Navigation bars</h1>
-            <img src={componentNav} alt="navigation bars card" className="-rotate-12 w-[300px] hover:rotate-0 h-[190px] border-[3px] rounded-md md:mr-[900px] -mb-40 " /></div>
+            <img src={componentNav} alt="navigation bars card" className="-rotate-12 w-[300px] hover:rotate-0 h-[200px] border-[3px] rounded-md md:mr-[900px] -mb-40 " /></div>
           <div>
             <h1 className="hidden sm:flex md:ml-[300px] text-2x font-semibold text-4xl text-transparent bg-clip-text bg-gradient-to-r from-slate-400 p-2 to-slate-500">Cards</h1>
-            <img src={componentCard} alt="cards card" className="-rotate-12 mt-28 sm:mt-2 hover:rotate-0 h-[190px] w-[300px] border-[3px] rounded-md md:mr-[700px] -mb-40" /></div>
+            <img src={componentCard} alt="cards card" className="-rotate-12 mt-28 sm:mt-2 hover:rotate-0 h-[200px] w-[300px] border-[3px] rounded-md md:mr-[700px] -mb-40" /></div>
           <div>
             <h1 className="hidden sm:flex md:ml-[300px] text-2x font-semibold text-4xl text-transparent bg-clip-text bg-gradient-to-r from-slate-500 p-2 to-slate-600">Buttons</h1>
-            <img src={componentButt} alt="buttons card" className="-rotate-12 mt-28 sm:mt-2 w-[300px] h-[190px] border-[3px] rounded-md  md:mr-[300px] -mb-40 hover:rotate-0 " />
+            <img src={componentButt} alt="buttons card" className="-rotate-12 mt-28 sm:mt-2 w-[300px] h-[200px] border-[3px] rounded-md  md:mr-[300px] -mb-40 hover:rotate-0 " />
           </div>
           <div>
             <h1 className="md:ml-[600px] hidden sm:flex text-2x font-semibold text-4xl rounded-xl text-transparent bg-clip-text bg-gradient-to-r from-slate-700 p-2  to-slate-800">...and much <b>More</b></h1>
-            <img src={componentOther} alt="others components card" className="-rotate-12 hover:rotate-0 h-[190px] mt-28 sm:mt-2 md:ml-[300px] border-[3px] rounded-md w-[300px] -mb-28  " />
+            <img src={componentOther} alt="others components card" className="-rotate-12 hover:rotate-0 h-[200px] mt-28 sm:mt-2 md:ml-[300px] border-[3px] rounded-md w-[300px] -mb-28  " />
           </div>
         </div>
         <button className="bg-blue-600 w-[230px] h-[50px] border-[1px] rounded-xl m-2 mt-48 hover:bg-white hover:border-[1px] group hover:border-blue-600">
