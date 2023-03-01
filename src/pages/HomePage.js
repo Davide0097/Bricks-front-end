@@ -27,9 +27,9 @@ const HomePage = () => {
 
 
   const [showForm, setShowForm] = useState(false)
-  const { getAuthors } = useContentfulAuthors();
-  const { getPosts } = useContentful();
-  const { getComponents } = useContentfulComponents();
+  // const { getAuthors } = useContentfulAuthors();
+  // const { getPosts } = useContentful();
+  // const { getComponents } = useContentfulComponents();
 
   const [authors, setAuthors] = useState([]);
   const [posts, setPosts] = useState([])
@@ -39,58 +39,58 @@ const HomePage = () => {
     window.scrollTo(0, 0);
   }, [showForm]);
 
-  const handleScroll = () => {
-    const showcase = document.querySelector('.author-showcase');
-    const scrollIndicator = document.querySelector('.scroll-indicator');
-    if (showcase && scrollIndicator) {
-      const { scrollTop, scrollHeight, clientHeight } = showcase;
-      const scrollRatio = scrollTop / (scrollHeight - clientHeight);
-      const scrollIndicatorHeight = 50; // Adjust this to match your desired scrollbar indicator height
-      const scrollIndicatorY = scrollRatio * (clientHeight - scrollIndicatorHeight);
-      scrollIndicator.style.transform = `translateY(${scrollIndicatorY}px)`;
-    }
-  };
+  // const handleScroll = () => {
+  //   const showcase = document.querySelector('.author-showcase');
+  //   const scrollIndicator = document.querySelector('.scroll-indicator');
+  //   if (showcase && scrollIndicator) {
+  //     const { scrollTop, scrollHeight, clientHeight } = showcase;
+  //     const scrollRatio = scrollTop / (scrollHeight - clientHeight);
+  //     const scrollIndicatorHeight = 50; // Adjust this to match your desired scrollbar indicator height
+  //     const scrollIndicatorY = scrollRatio * (clientHeight - scrollIndicatorHeight);
+  //     scrollIndicator.style.transform = `translateY(${scrollIndicatorY}px)`;
+  //   }
+  // };
 
-  useEffect(() => {
-    const showcase = document.querySelector('.author-showcase');
-    showcase.addEventListener('scroll', handleScroll);
-    return () => showcase.removeEventListener('scroll', handleScroll);
-  }, []);
+  // useEffect(() => {
+  //   const showcase = document.querySelector('.author-showcase');
+  //   showcase.addEventListener('scroll', handleScroll);
+  //   return () => showcase.removeEventListener('scroll', handleScroll);
+  // }, []);
 
   // Use effect to get the authors information with author.authorName = index
-  useEffect(() => {
-    try {
-      getAuthors().then((response) =>
-        setAuthors(response));
-      console.log(authors);
+  // useEffect(() => {
+  //   try {
+  //     getAuthors().then((response) =>
+  //       setAuthors(response));
+  //     console.log(authors);
 
-    } catch (error) {
-      console.log("my message: error getting templates in homePage.js")
-      console.error(error)
-    }
-  }, [])
-
-
-  useEffect(() => {
-    try {
-      getPosts().then((response) =>
-        setPosts(response));
-    } catch (error) {
-      console.log("my message: error getting posts in homePage.js")
-      console.error(error)
-    }
-  }, [])
+  //   } catch (error) {
+  //     console.log("my message: error getting templates in homePage.js")
+  //     console.error(error)
+  //   }
+  // }, [])
 
 
-  useEffect(() => {
-    try {
-      getComponents().then((response) =>
-        setComponents(response));
-    } catch (error) {
-      console.log("my message: error getting components in homePage.js")
-      console.error(error)
-    }
-  }, [])
+  // useEffect(() => {
+  //   try {
+  //     getPosts().then((response) =>
+  //       setPosts(response));
+  //   } catch (error) {
+  //     console.log("my message: error getting posts in homePage.js")
+  //     console.error(error)
+  //   }
+  // }, [])
+
+
+  // useEffect(() => {
+  //   try {
+  //     getComponents().then((response) =>
+  //       setComponents(response));
+  //   } catch (error) {
+  //     console.log("my message: error getting components in homePage.js")
+  //     console.error(error)
+  //   }
+  // }, [])
 
   return (
     <div>
@@ -132,7 +132,7 @@ const HomePage = () => {
       </div>
 
       {/* Cards for Bricks Hub and author showcase */}
-      <Link to={"/BricksHub"}>
+      {/* <Link to={"/BricksHub"}>
         <div className='bg-slate-100 py-4 sm:py-6 border-[1px]'>
 
           <h1 className="uppercase font-bold text-transparent  
@@ -143,10 +143,7 @@ const HomePage = () => {
             Become a part of our growing community with <b>Brickshub.</b>
           </h1>
 
-          {/* Section*/}
           <div className='w-full -translate-y-6 flex flex-col pb-4 pt-10 lg:py-1 lg:flex md:flex-row mb-10 justify-center items-center'>
-
-            {/* Compoents */}
             <div>
               <h1 className='p-4 font-bold px-2 text-5xl text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'>{components.length}</h1>
               <h1 className='p-4 pt-1 font-bold px-2 text-3xl text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'>components</h1>
@@ -158,8 +155,6 @@ const HomePage = () => {
                 )))}
               </div>
             </div>
-
-            {/* Authors */}
             <div>
               <h1 className='p-4 font-bold px-2 text-5xl text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'> {authors.length}</h1>
               <h1 className='p-4 pt-1 font-bold px-2 text-3xl text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'>contributors</h1>
@@ -172,8 +167,6 @@ const HomePage = () => {
                 )))}
               </div>
             </div>
-
-            {/* Blog Articles */}
             <div>
               <h1 className='p-4 font-bold px-2 text-5xl text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'>{posts.length}</h1>
               <h1 className='p-4 pt-1 font-bold px-2 text-3xl text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'>posts</h1>
@@ -224,7 +217,7 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      </Link>
+      </Link> */}
 
       {/* Components */}
       <div className="2xl:px-40 bg-slate-100 py-20 flex flex-col justify-center items-center h-auto">
