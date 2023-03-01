@@ -76,7 +76,7 @@ const BlogPage = () => {
 
             {/* Searchbar */}
             <div className='flex justify-center items-center'>
-                <img className=" w-[40px] mt-20 py-2 mr-6"
+                <img className=" h-[60px] w-[45px] mt-20 py-2 mr-6"
                     src={Search} alt="search icon" />
                 <input
                     className="border rounded-xl mt-20 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
