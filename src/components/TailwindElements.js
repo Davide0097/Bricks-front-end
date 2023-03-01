@@ -3,6 +3,9 @@
 // Component preview
 import ComponentPreview from './CodePreview'
 
+// Component to edit title
+import ComponentTitleEditor from './ComponentTitleEditor'
+
 // Use effect e useState
 import { useEffect, useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
@@ -158,13 +161,12 @@ const TailwindElements = () => {
                                         setShowFullPage(true);
                                         navigateToDiv(myDiv);
                                     }} component={component}
-                                    className="border border-slate-300 sm:min-w[300px] bg-gradient-to-r from-slate-200 to-white rounded-xl p-4">
+                                    className="border border-slate-300 sm:min-w[300px] bg-gradient-to-r from-slate-200 to-white rounded-xl p-2">
                                     <img className="object-cover object-center w-full rounded-lg h-40"
                                         src={component.componentPreview.fields.file.url} alt="component Preview" />
                                     <p className="bg-slate-100  font-bold float-right m-2 border-[1px] text-sm p-1 rounded-md text-slate-500">TAILWIND</p>
-                                    <h1 className="font-bold mt-8 p-1" >{component.componentName}</h1>
+                                    <ComponentTitleEditor title={component.componentName} />
                                     <h1 className="text-slate-700 p-1" >{component.componentDescription}</h1>
-                                    {/* <ComponentPreview componentCode={component.componentCode} className="w-[300px]" />  */}
                                     <div className="w-100 flex flex-col mt-8 justify-center items-center" >
                                         <Link to={`/AuthorPage/${component.componentAuthor}`} key={component.componentAuthor} component={component}  >
                                             <div className="w-100 flex flex-row justify-center items-center">

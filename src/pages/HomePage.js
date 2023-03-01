@@ -147,7 +147,8 @@ const HomePage = () => {
 
             {/* Compoents */}
             <div>
-              <h1 className='p-4 font-bold px-2 text-3xl text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'> {components.length} components</h1>
+              <h1 className='p-4 font-bold px-2 text-5xl text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'>{components.length}</h1>
+              <h1 className='p-4 pt-1 font-bold px-2 text-3xl text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'>components</h1>
               <div className='mt-1 h-[300px] w-[300px] overflow-auto author-showcase'>
                 {(components && components.map((component) => (
                   <div key={component.componentName} className='my-1 flex flex-row justify-center items-center hover:bg-slate-300'>
@@ -159,7 +160,8 @@ const HomePage = () => {
 
             {/* Authors */}
             <div>
-              <h1 className='p-4 font-bold px-2 text-3xl text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'> {authors.length} contributors</h1>
+              <h1 className='p-4 font-bold px-2 text-5xl text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'> {authors.length}</h1>
+              <h1 className='p-4 pt-1 font-bold px-2 text-3xl text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'>contributors</h1>
               <div className='mt-1 h-[300px] w-[300px] overflow-auto author-showcase'>
                 {(authors && authors.map((author) => (
                   <div key={author.authorName} className='flex flex-row justify-center items-center hover:bg-slate-300'>
@@ -172,7 +174,8 @@ const HomePage = () => {
 
             {/* Blog Articles */}
             <div>
-              <h1 className='p-4 font-bold px-2 text-3xl text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'> {posts.length} posts</h1>
+              <h1 className='p-4 font-bold px-2 text-5xl text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'>{posts.length}</h1>
+              <h1 className='p-4 pt-1 font-bold px-2 text-3xl text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'>posts</h1>
               <div className='mt-1 h-[300px] w-[300px] overflow-auto author-showcase'>
                 {(posts && posts.map((post) => (
                   <div key={post.postTitle} className='my-1 flex flex-row justify-center items-center hover:bg-slate-300'>

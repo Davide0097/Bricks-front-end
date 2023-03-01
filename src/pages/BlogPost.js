@@ -86,7 +86,7 @@ const BlogPost = (post) => {
                 <>
                     {/* Title and tags */}
                     <div className="px-3 bg-gray-900 pb-4 pt-40">
-                        <div className="container max-w-screen-lg mx-auto">
+                        <div className="container max-w-screen-lg  sm:px-20 mx-auto">
                             <h1 className='font-bold text-5xl pb-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'>{single.postTitle}</h1>
                             <PostTags key={single.postTitle} post={single}></PostTags>
                         </div>

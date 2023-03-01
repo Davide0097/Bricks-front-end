@@ -10,23 +10,23 @@ const postTags = ({ post }) => {
             {content.map(substring => {
                 let element;
                 if (substring === 'tailwind') {
-                    element = <button key={substring} className="font-semibold text-sm text-slate-200 rounded-md px-2 bg-red-600  py-2 m-1">TAILWIND</button>;
+                    element = <button key={substring} className="font-semibold text-sm text-slate-200 rounded-md py-1 bg-red-600  px-2 m-1">TAILWIND</button>;
                 } else if (substring === 'react') {
-                    element = <button key={substring} className="font-semibold text-sm text-slate-200 rounded-md px-2 bg-blue-600 py-2 m-1">REACT</button>;
+                    element = <button key={substring} className="font-semibold text-sm text-slate-200 rounded-md px-2 bg-blue-600 py-1 m-1">REACT</button>;
                 }
                 else if (substring === 'css') {
-                    element = <button key={substring} className="font-semibold text-sm text-slate-200 rounded-md px-2 bg-green-600 py-2 m-1">CSS</button>;
+                    element = <button key={substring} className="font-semibold text-sm text-slate-200 rounded-md px-2 bg-green-600 py-1 m-1">CSS</button>;
                 }
                 else if (substring === 'javascript') {
-                    element = <button key={substring} className="font-semibold text-sm text-slate-200 rounded-md px-2 bg-yellow-600 py-2 m-1">JAVASCRIPT</button>;
+                    element = <button key={substring} className="font-semibold text-sm text-slate-200 rounded-md px-2 bg-green-600 py-1 m-1">JAVASCRIPT</button>;
                 }
                 else if (substring === 'html') {
-                    element = <button key={substring} className="font-semibold text-sm text-slate-200 rounded-md px-2 bg-pink-600 py-2 m-1">HTML</button>;
+                    element = <button key={substring} className="font-semibold text-sm text-slate-200 rounded-md px-2 bg-pink-600 py-1 m-1">HTML</button>;
                 }
                 else if (substring === 'nodejs') {
-                    element = <button key={substring} className="font-semibold text-sm text-slate-200 rounded-md px-2 bg-blue-600 py-2 m-1">NODEJS</button>;
+                    element = <button key={substring} className="font-semibold text-sm text-slate-200 rounded-md px-2 bg-yellow-600 py-1 m-1">NODEJS</button>;
                 } else {
-                    element = <button key={substring} className="font-semibold text-sm text-slate-200 rounded-md  px-2 py-2 m-1" >{substring}</button>;
+                    element = <button key={substring} className="font-semibold text-sm text-slate-200 rounded-md uppercase px-2 py-1 m-1" >{substring}</button>;
                 }
                 return element;
             })}
