@@ -39,26 +39,41 @@ const BlogPost = (post) => {
     }, []);
 
     const RichText = ({ document }) => {
+
         const renderOptions = {
+
+            // Adding space when i receive \n from the cms
+            renderText: text => {
+                return text.split('\n').reduce((children, textSegment, index) => {
+                    return [...children, index > 0 && <br key={index} />, textSegment];
+                }, []);
+            },
+
             renderNode: {
+                // Render the part of the content i receive in the JSON object that 
+                // has the field document.content[each of thoose] that has the field "marks" or 
+                // nodetype="paragraph"
                 [BLOCKS.PARAGRAPH]: (node, children) => {
                     if (
                         node.content[0].marks || { type: 'code' }
                     ) {
-                        return (
-                            <div className="flex  mb-8">
-                                <SyntaxHighlighter
-                                    className="w-[360px] sm:w-[600px]  xl:w-full"
-                                    style={a11yDark}
-                                    language="javascript"
-                                    PreTag="div"
-                                >
-                                    {node.content[0].value}
-                                </SyntaxHighlighter>
-                            </div>
-                        );
+                        if (node.content[0].value) {
+                            return (
+                                <div className="flex  mb-8">
+                                    <SyntaxHighlighter
+                                        className="w-[360px] sm:w-[600px]  xl:w-full"
+                                        style={a11yDark}
+                                        language="javascript"
+                                        PreTag="div"
+                                    >
+                                        {node.content[0].value}
+                                    </SyntaxHighlighter>
+                                </div>
+                            );
+                        }
                     }
                 },
+                // Render the assets (images)
                 [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
                     return (
                         <div className="flex items-center justify-center min-w-[300px] mt-10 max-w-[500px] h-full">
@@ -87,7 +102,7 @@ const BlogPost = (post) => {
                     {/* Title and tags */}
                     <div className="px-3 bg-gray-900 pb-4 pt-40">
                         <div className="container max-w-screen-lg  sm:px-20 mx-auto">
-                            <h1 className='font-bold text-5xl pb-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'>{single.postTitle}</h1>
+                            <h1 className='uppercase font-bold text-5xl pb-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'>{single.postTitle}</h1>
                             <PostTags key={single.postTitle} post={single}></PostTags>
                         </div>
                     </div>
@@ -117,7 +132,7 @@ const BlogPost = (post) => {
                             <p className='relative p-4'>{single.postBody}</p>
                         </div>
 
-                        {/* Post rich     metti items-center mt-6 justify-center*/}
+                        {/* Richtext */}
                         <div className='text-xl flex flex-col mt-10 px-1 h-full'>
                             <RichText document={single.postRich} />
                         </div>
