@@ -62,14 +62,11 @@ const HomePage = () => {
     try {
       getAuthors().then((response) =>
         setAuthors(response));
-      console.log(authors);
-
     } catch (error) {
       console.log("my message: error getting templates in homePage.js")
       console.error(error)
     }
   }, [])
-
 
   useEffect(() => {
     try {
@@ -80,7 +77,6 @@ const HomePage = () => {
       console.error(error)
     }
   }, [])
-
 
   useEffect(() => {
     try {
@@ -106,14 +102,14 @@ const HomePage = () => {
       )}
 
       {/* Hero */}
-      <div className="2xl:px-20 sm:p-10 w-screen bg-gradient-to-b from-slate-300 to-white pt-40">
+      <div className="2xl:px-20 sm:p-10 w-full bg-gradient-to-b from-slate-300 to-white pt-40">
         <div className="flex flex-col justify-center items-center">
           <img src={Logo} alt="Bricks Logo" className="sm:mt-20 w-[300px] h-[300px]" />
           <h1
             className="uppercase font-bold text-transparent md:px-60 h-[240px] 2xl:h-[160px] bg-clip-text bg-gradient-to-r from-pink-600 px-10 to-blue-600 text-5xl sm:text-7xl  text-center mt-2 tracking-thight">
             Speed up your deployment
           </h1>
-          <p className=" px-2 text-slate-500 text-2xl text-center"><b>BUILD THE WEB FASTER. </b>Browse around beautiful <b> Templates
+          <p className=" px-2 text-slate-500 text-2xl text-center"><b>BUILD THE WEB FASTER.<br /></b>Browse around beautiful <b> Templates
           </b> and <b>Components.</b>
           </p>
           <div className="p-8 flex flex-col sm:flex-row justify-center items-center">
@@ -248,21 +244,21 @@ const HomePage = () => {
       </div>
 
       {/* Templates */}
-      <div className="2xl:px-60 bg-slate-100 w-100 py-20 flex flex-col justify-center items-center border-[1px] border-slate-300">
+      <div className="2xl:px-60 bg-slate-100 py-20 flex flex-col justify-center items-center border-[1px] border-slate-300">
         <h1 className=" my-4 font-bold text-4xl m-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600">Bricks Templates</h1>
-        <h1 className="text-slate-700 text-xl pb-10 sm:mx-40 text-center m-4">Explore our collection of templates, each with its own <b>GitHub repository and comprehensive documentation.</b></h1>
-        <div className=" w-screen grid grid-cols-1 2xl:px-60 md:grid-cols-3 px-4 md:px-40 gap-10 py-10">
-          <div className="border border-slate-300 min-w[300px] bg-white rounded-xl p-4">
+        <h1 className="text-slate-700 text-xl pb-10 sm:mx-40 text-center m-4">Explore our collection of templates,<br /> each with its own <b>GitHub repository and comprehensive documentation.</b></h1>
+        <div className="w-full grid grid-cols-1 2xl:px-60 md:grid-cols-3 mx-2 md:px-40 gap-10 py-10">
+          <div className="border border-slate-300 min-w[300px] bg-white rounded-xl m-2 p-4">
             <h1 className="font-bold">MERN Stack Blog</h1>
             <p className="text-slate-700 p-1">Blog builded on MERN stack.</p>
             <p className="text-blue-600 text-bold mt-10">Documentation →</p>
           </div>
-          <div className="border border-slate-300 min-w[300px] bg-white rounded-xl p-4">
+          <div className="border border-slate-300 min-w[300px] m-2 bg-white rounded-xl p-4">
             <h1 className="font-bold">Auth with JWT</h1>
             <p className="text-slate-700 p-1">User Signup and Login using JWT token.</p>
             <p className="text-blue-700 text-bold mt-10">Documentation →</p>
           </div>
-          <div className="border border-slate-300 min-w[300px] bg-white rounded-xl p-4">
+          <div className="border border-slate-300 min-w[300px] m-2 bg-white rounded-xl p-4">
             <h1 className="font-bold">E-commerce</h1>
             <p className="text-slate-700 p-1">E-commerce website template.</p>
             <p className="text-blue-700 text-bold mt-10">Documentation →</p>
