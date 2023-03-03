@@ -19,7 +19,7 @@ import { useState, useEffect } from 'react';
   }
 
   return (
-    <div className={`fixed bottom-0 left-0 w-full p-4 bg-gray-200 text-center ${showModal ? 'block' : 'hidden'}`}>
+    <div className={`fixed bottom-0 left-0 w-full p-4 bg-gray-200 z-[99999] text-center ${showModal ? 'block' : 'hidden'}`}>
       <h2 className="font-bold mb-2">Cookie Policy</h2>
       <p className="text-sm mb-4 font-semibold">We use cookies to provide the best experience on our website. By continuing to browse the site, you agree to our use of cookies.</p>
       <button className="bg-blue-600 text-white px-4 py-2 rounded-md mr-2" onClick={handleAccept}>Accept</button>
@@ -28,4 +28,4 @@ import { useState, useEffect } from 'react';
   );
 }
 
-export default CookiesModal;
+export default CookiesModal; 
