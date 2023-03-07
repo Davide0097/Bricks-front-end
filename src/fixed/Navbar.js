@@ -134,7 +134,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-            {showDiv && <div className='w-screen h-[1000px]  min-[1000px]:hidden  bg-white bg-opacity-60 backdrop-blur-lg drop-shadow-lg  fixed py-10 mt-[105px] z-20'>
+            {showDiv && <div className='w-screen h-[1000px]  min-[1000px]:hidden bg-white backdrop-blur-lg drop-shadow-lg  fixed py-10 mt-[105px] z-20'>
                 <div className='grid grid-cols-2 items-center justify-center gap-2 px-4'>
 
                     <div className='col-span-2 py-3'>

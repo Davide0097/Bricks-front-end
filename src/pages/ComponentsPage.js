@@ -62,7 +62,7 @@ const ComponentsPage = () => {
                     <div className="flex flex-col justify-center items-center py-4 lg:px-3">
                         <img src={Contrast} alt="Contrast icon" className="w-[29px] h-[29px]" />
                         <h1 className="text-2xl  text-center font-semibold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600"> <b>Contrast </b></h1>
-                        <p className=" text-slate-500 text-xl text-center font-semibold px-1">Eeasy to read</p>
+                        <p className=" text-slate-500 text-xl text-center font-semibold px-1">Easy to read</p>
                     </div>
                     <div className="flex flex-col justify-center items-center bg-slate-900 border-1px rounded-xl py-4 animate-bounce duration-200 transform hover:scale-90 lg:px-3">
                         <img src={Animated} alt="Interactive icon" className="w-[29px] h-[29px]" />

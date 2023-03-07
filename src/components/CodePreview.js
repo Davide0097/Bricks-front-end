@@ -19,7 +19,10 @@ function ComponentPreview({ componentCode }) {
                     externalResources: ["https://cdn.tailwindcss.com"]
                 }}
                 files={{
-                    "/App.js": `export default function App() {return <div>` + componentCode + `</div>}`,
+"/App.js": `export default function App() {
+ return <div>
+` + componentCode + `
+</div>}`,
                 }}>
                 <SandpackLayout>
                     <SandpackCodeEditor />

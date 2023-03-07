@@ -12,7 +12,9 @@ function CssComponentPreview({ componentCode, componentCssCode }) {
 
     const htmlCode = componentCode;
 
-    const code = `import "./styles.css";document.getElementById("app").innerHTML = '${htmlCode}';`;
+    const code = `import "./styles.css";
+    document.getElementById("app").innerHTML =
+     '${htmlCode}';`;
     return (
         <div>
             <SandpackProvider

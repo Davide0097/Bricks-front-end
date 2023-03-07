@@ -1,5 +1,7 @@
 // Overview: component rendered in the components page to show css components
 
+import ComponentTitleEditor from './ComponentTitleEditor'
+
 // Use effect e useState
 import { useEffect, useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
@@ -157,7 +159,7 @@ const CssElements = () => {
                                         <img className="object-cover object-center w-full  rounded-lg h-40"
                                             src={component.componentPreview.fields.file.url} alt="css component Preview" />
                                         <p className="bg-slate-100  font-bold float-right m-2 border-[1px] text-sm text-slate-500 p-1 rounded-md">CSS</p>
-                                        <h1 className="font-bold mt-8 p-1" >{component.componentName}</h1>
+                                        <ComponentTitleEditor title={component.componentName} />
                                         <h1 className="text-slate-700 p-1" >{component.componentDescription}</h1>
                                         <div className="w-100 flex flex-col mt-8 justify-center items-center" >
                                             <Link to={`/AuthorPage/${component.componentAuthor}`} key={component.componentAuthor} component={component}  >

@@ -1,7 +1,7 @@
 // Use params
 import { useParams } from "react-router-dom";
 
-import { formatDistanceToNow, secondsToMilliseconds } from 'date-fns'
+import { formatDistanceToNow } from 'date-fns'
 
 // Links
 import { Link } from 'react-router-dom';
@@ -186,8 +186,8 @@ const AuthorPage = () => {
               <div className="">
                 <div className="flex flex-row-1 items-center">
                   <h1 className="text-slate-200 text-left text-xl p-1 sm:text-2xl">-  {post.postTitle} </h1>
-                  <button className="ml-3 bg-blue-600 w-[180px]  rounded-md  ">
-                    <p className=" font-semibold text-sm text-slate-200 text-center px-4 py-1 sm:text-xl">READ</p>
+                  <button className="ml-3 bg-blue-600 min-w-[150px] m-1 mt-2 rounded-md  ">
+                    <span className=" font-semibold text-sm text-slate-200 text-center px-4 py-1 sm:text-xl">READ</span>
                   </button>
                 </div>
                 <div className="flex flex-row-1">
