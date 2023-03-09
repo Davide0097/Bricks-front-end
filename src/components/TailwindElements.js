@@ -150,7 +150,7 @@ const TailwindElements = () => {
                 ) : (
                     <>
                         {/* Cards container */}
-                        <div className=" w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-4  md:px-20 lg:px-20 gap-8 py-6 md:py-20">
+                        <div className="w-full max-[640px]:items-center max-[640px]:justify-center max-[640px]:flex max-[640px]:flex-col grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-4 md:px-20 lg:px-20 gap-8 py-6 md:py-20">
 
                             {/* Single card */}
                             {filteredComponents.slice((page - 1) * 12, page * 12).map((component, componentName) => (
@@ -160,8 +160,8 @@ const TailwindElements = () => {
                                         setSelectedComponent(component);
                                         setShowFullPage(true);
                                         navigateToDiv(myDiv);
-                                    }} component={component}
-                                    className="border border-slate-300 sm:min-w[300px] bg-gradient-to-r from-slate-200 to-white rounded-xl p-2">
+                                    }} component={component} 
+                                    className="border border-slate-300 max-[640px]:w-[300px] sm:min-w-[210px] bg-gradient-to-r from-slate-200 to-white rounded-xl p-2">
                                     <img className="object-cover object-center w-full rounded-lg h-40"
                                         src={component.componentPreview.fields.file.url} alt="component Preview" />
                                     <p className="bg-slate-100  font-bold float-right m-2 border-[1px] text-sm p-1 rounded-md text-slate-500">TAILWIND</p>
@@ -174,7 +174,7 @@ const TailwindElements = () => {
                                                 <h1 className="text-slate-700 p-2 min-w-[100px] font-semibold underline" >{component.componentAuthor}</h1>
                                             </div >
                                         </Link>
-                                        <button className=" w-[100px]  mt-2   bg-blue-600  border-[1px] rounded-md  hover:bg-white hover:border-[1px] group hover:border-blue-600 ">
+                                        <button className=" w-[100px] mt-2  bg-blue-600  border-[1px] rounded-md  hover:bg-white hover:border-[1px] group hover:border-blue-600 ">
                                             <p className="text-white text-md font-semibold p-1  px-2 group-hover:text-blue-600">Code →</p>
                                         </button>
                                     </div>
