@@ -146,7 +146,7 @@ const CssElements = () => {
                     <div className="px-40 text-center h-[300px] font-extrabold text-4xl text-transparent bg-clip-text bg-gradient-to-r from-slate-700 to-slate-600 pt-20 m-4">Loading css components...</div>
                 ) : (
                     <>
-                        <div className=" w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-4 sm:px-10 md:px-20 lg:px-20 gap-8 py-6 md:py-20">
+                        <div className="w-full max-[640px]:items-center max-[640px]:justify-center max-[640px]:flex max-[640px]:flex-col grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-4 md:px-20 lg:px-20 gap-8 py-6 md:py-20">
                             {filteredComponents.slice((page - 1) * 12, page * 12).map((component, componentName) => (
                                 <div key={component.componentDescription}>
                                     {/* Single card */}
@@ -155,20 +155,22 @@ const CssElements = () => {
                                             setSelectedComponent(component);
                                             setShowFullPage(true);
                                             navigateToDiv();
-                                        }} className="border border-slate-300 sm:min-w[300px] bg-gradient-to-r from-slate-200 to-white rounded-xl p-4">
-                                        <img className="object-cover object-center w-full  rounded-lg h-40"
+                                        }}
+                                        className="shadow-xl border border-slate-300 max-[640px]:w-[300px] sm:min-w-[210px] bg-gradient-to-r from-slate-200 to-white rounded-xl p-2 hover:from-white">
+                                        <img className="object-cover rounded-lg aspect-w-4 aspect-h-3"
                                             src={component.componentPreview.fields.file.url} alt="css component Preview" />
                                         <p className="bg-slate-100  font-bold float-right m-2 border-[1px] text-sm text-slate-500 p-1 rounded-md">CSS</p>
-                                        <ComponentTitleEditor title={component.componentName} />
-                                        <h1 className="text-slate-700 p-1" >{component.componentDescription}</h1>
+                                        <div className='mt-10'>
+                                            <ComponentTitleEditor title={component.componentName} />
+                                        </div>                                        <h1 className="text-slate-700 p-1 min-h-[100px]" >{component.componentDescription}</h1>
                                         <div className="w-100 flex flex-col mt-8 justify-center items-center" >
                                             <Link to={`/AuthorPage/${component.componentAuthor}`} key={component.componentAuthor} component={component}  >
                                                 <div className="w-100 flex flex-row justify-center items-center">
                                                     <img src={component.componentAuthorImg.fields.file.url} className="w-[20px] m-1 bg-red-200 rounded-xl h-[20px] " alt="css component author preview" />
                                                     <h1 className="text-slate-700 p-2 min-w-[100px] font-semibold underline" >{component.componentAuthor} </h1>
-                                                </div >
+                                                </div>
                                             </Link>
-                                            <button className=" w-[100px]  mt-2   bg-blue-600  border-[1px] rounded-md  hover:bg-white hover:border-[1px] group hover:border-blue-600 "><p className="text-white text-md font-semibold p-1  px-2 group-hover:text-blue-600">Code →</p></button>
+                                            <button className="w-[100px] mt-2 bg-blue-600 border-[1px] rounded-md  hover:bg-white hover:border-[1px] group hover:border-blue-600 "><p className="text-white text-md font-semibold p-1  px-2 group-hover:text-blue-600">Code →</p></button>
                                         </div>
                                     </div>
                                 </div>
@@ -183,7 +185,7 @@ const CssElements = () => {
                                 <div className="p-2 w-[340px] sm:w-[500px] md:w-[800px] xl:w-[1280px]">
                                     <p className='text-2xl text-left font-bold p-1
                                         text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600 
-                                         uppercase'>Editor and Preview &darr;</p>
+                                         uppercase'>Editor and Preview: {selectedComponent.componentName}</p>
                                     <CssComponentPreview componentCode={selectedComponent.componentCode} componentCssCode={selectedComponent.componentCss} className="" />
                                 </div>
 
@@ -204,7 +206,6 @@ const CssElements = () => {
                                         <p className="text-white group-hover:text-blue-600 font-semibold  px-4">back</p>
                                     </button>
                                 </div>
-
                             </div>
                         )}
                     </>

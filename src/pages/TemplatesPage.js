@@ -106,7 +106,7 @@ const TemplatesPage = () => {
                             {templates.slice((page - 1) * 10, page * 10).map((template, templateTitle) => (
                                 <div
                                     key={template.templateTitle}
-                                    className="border border-slate-300 min-w[300px] bg-gradient-to-r from-slate-200 to-white rounded-xl p-4">
+                                    className="shadow-xl border border-slate-300 min-w[300px] bg-gradient-to-r from-slate-200 to-white rounded-xl p-4">
                                     <img src={template.templatePreview.fields.file.url} alt="blog Logo" className="w-full rounded-xl mb-3" />
                                     <h1 className="font-bold p-1" >{template.templateTitle}</h1>
                                     <h1 className="text-slate-700 p-1" >{template.templateDescription}</h1>

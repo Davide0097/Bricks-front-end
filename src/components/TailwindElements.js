@@ -160,13 +160,15 @@ const TailwindElements = () => {
                                         setSelectedComponent(component);
                                         setShowFullPage(true);
                                         navigateToDiv(myDiv);
-                                    }} component={component} 
-                                    className="border border-slate-300 max-[640px]:w-[300px] sm:min-w-[210px] bg-gradient-to-r from-slate-200 to-white rounded-xl p-2">
-                                    <img className="object-cover object-center w-full rounded-lg h-40"
+                                    }} component={component}
+                                    className="shadow-xl border border-slate-300 max-[640px]:w-[300px] sm:min-w-[210px] bg-gradient-to-r from-slate-200 to-white rounded-xl p-2 hover:from-white">
+                                    <img className="object-cover rounded-lg aspect-w-4 aspect-h-3"
                                         src={component.componentPreview.fields.file.url} alt="component Preview" />
                                     <p className="bg-slate-100  font-bold float-right m-2 border-[1px] text-sm p-1 rounded-md text-slate-500">TAILWIND</p>
-                                    <ComponentTitleEditor title={component.componentName} />
-                                    <h1 className="text-slate-700 p-1" >{component.componentDescription}</h1>
+                                    <div className='mt-10'>
+                                        <ComponentTitleEditor title={component.componentName} />
+                                    </div>
+                                    <h1 className="text-slate-700 p-1 min-h-[100px]" >{component.componentDescription}</h1>
                                     <div className="w-100 flex flex-col mt-8 justify-center items-center" >
                                         <Link to={`/AuthorPage/${component.componentAuthor}`} key={component.componentAuthor} component={component}  >
                                             <div className="w-100 flex flex-row justify-center items-center">
@@ -174,10 +176,12 @@ const TailwindElements = () => {
                                                 <h1 className="text-slate-700 p-2 min-w-[100px] font-semibold underline" >{component.componentAuthor}</h1>
                                             </div >
                                         </Link>
-                                        <button className=" w-[100px] mt-2  bg-blue-600  border-[1px] rounded-md  hover:bg-white hover:border-[1px] group hover:border-blue-600 ">
+                                        <button className="w-[100px] mt-2 bg-blue-600  border-[1px] rounded-md  hover:bg-white hover:border-[1px] group hover:border-blue-600 ">
                                             <p className="text-white text-md font-semibold p-1  px-2 group-hover:text-blue-600">Code →</p>
                                         </button>
                                     </div>
+
+
                                 </div>
                             ))}
                         </div>
@@ -189,7 +193,7 @@ const TailwindElements = () => {
                                 <div className="p-2 w-[340px] sm:w-[500px] md:w-[800px] xl:w-[1280px]">
                                     <p className='text-2xl text-left font-bold p-1
                                         text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600 
-                                         uppercase'>Editor and Preview &darr;</p>
+                                         uppercase'>Editor and Preview: {selectedComponent.componentName}</p>
                                     <ComponentPreview componentCode={selectedComponent.componentCode} className="" />
                                 </div>
 

@@ -6,7 +6,7 @@ const SinglePost = ({ post }) => {
 
     return (
         <div>
-            <div className="border border-slate-300 min-w[300px] rounded-xl p-4 bg-gradient-to-r from-slate-200 to-white">
+            <div className="shadow-xl border border-slate-300 min-w[300px] rounded-xl p-4 bg-gradient-to-r from-slate-200 to-white">
                 <button className=" float-right w-[120px] bg-blue-600 border-[1px] rounded-md hover:bg-white hover:border-[1px] group hover:border-blue-600 "><p className="text-white text-md font-semibold p-1  px-2 group-hover:text-blue-600">Read More →</p></button>
                 <h1 className='text-xl uppercase font-bold text-transparent bg-clip-text p-1 bg-gradient-to-r from-black to-pink-600 mt-10'>{post.postTitle}</h1>
                 <PostTags key={post.postTitle} post={post}></PostTags>

@@ -7,17 +7,28 @@ const ComponentTitleEditor = ({ title }) => {
 
 
     return (
-        <h1 className="font-semibold mt-10 p-1">
+        <h1 className="font-semibold my-2 p-1">
             {words.map((word, index) => {
-                if (word.startsWith('"') && word.endsWith('"')) {
+                if (word === '"Basico"') {
                     return (
-                        <span key={index} className="bg-gray-600 px-2 rounded-md mr-2 text-white">
+                        <span key={index} className="bg-black px-3 mr-2 text-white">
                             {word}
                         </span>
-                    );
-                } else {
-                    return <span key={index}>{word} </span>;
-                }
+                    );}
+                    if (word === '"Simple"') {
+                        return (
+                            <span key={index} className="bg-blue-600 px-3 mr-2 rounded-md text-white">
+                                {word}
+                            </span>
+                        );}
+                     else if (word.startsWith('"') && word.endsWith('"')) {
+                        return (
+                            <span key={index} className="bg-gray-600 px-2 rounded-md mr-2 text-white">
+                                {word}
+                            </span>
+                        );}
+                                
+                    return <span key={index}>{word}</span>;
             })}
         </h1>
     )
