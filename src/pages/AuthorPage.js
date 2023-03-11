@@ -20,6 +20,9 @@ import PieChart from "../components/PieChartProfile";
 // Parallax
 import { Parallax } from 'react-parallax';
 
+// React helemet
+import Seo from '../components/Seo'
+
 // Contentful Hooks
 import useContentful from "../hooks/useContentfulPost"
 import useContentfulTemplates from "../hooks/useContentfulTemplates"
@@ -53,11 +56,50 @@ const AuthorPage = () => {
   const [pic, setPic] = useState("");
   const [date, setDate] = useState();
 
+  // Scroll
+  const [reachedEnd, setReachedEnd] = useState(false);
+
   //Inizializing the state of Counters, total number of posts 
   const [postCount, setPostCount] = useState(0)
   const [templatesCount, setTemplatesCount] = useState(0)
   const [componentsCount, setComponentsCount] = useState(0)
   const [cssComponentsCount, setCssComponentsCount] = useState(0)
+
+  useEffect(() => {
+    function handleScroll() {
+      const windowHeight =
+        "innerHeight" in window
+          ? window.innerHeight
+          : document.documentElement.offsetHeight;
+      const body = document.body;
+      const html = document.documentElement;
+      const docHeight = Math.max(
+        body.scrollHeight,
+        body.offsetHeight,
+        html.clientHeight,
+        html.scrollHeight,
+        html.offsetHeight
+      );
+      const windowBottom = windowHeight + window.pageYOffset;
+
+      if (windowBottom * 2 >= docHeight) {
+        setReachedEnd(true);
+        // window.removeEventListener("scroll", handleScroll);
+      }
+      if (windowBottom * 2 <= docHeight) {
+        setReachedEnd(false);
+        // window.removeEventListener("scroll", handleScroll);
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const myComponentStyle = {
+    opacity: reachedEnd ? 0 : 1,
+    transition: "opacity 0.5s ease-in-out",
+  };
 
   // Use effect to set the component state equal to filtered response array, i only set the state equal to component with component author = index
   useEffect(() => {
@@ -115,10 +157,16 @@ const AuthorPage = () => {
   }, [])
   return (
     <>
+      <Seo
+        title={author.authorName}
+        description='Discover more about me on Bricks !'
+        name='Bricks-platform'
+        type='landing page' />
+
       <div className="pt-28 px-2 bg-slate-900 sm:px-10 md:px-20 lg:px-60 2xl:px-[400px]">
 
         {/* div with name, photo, tags, contributions*/}
-        <div className="fixed m-2 p-2">
+        <div style={myComponentStyle} className="fixed m-2 p-2">
           <p className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 text-md sm:text-xl to-blue-600 p-1 sm:py-1">AUTHOR</p>
           <p className="font-bold text-white text-3xl sm:text-4xl  uppercase p-1 pt-0 sm:py-2">{author.authorName}</p>
 
@@ -141,11 +189,11 @@ const AuthorPage = () => {
           <p className="font-bold text-white uppercase from-pink-600 text-md sm:text-xl to-blue-600 p-1 sm:py-2">{date}</p>
         </div>
 
-        {/* div with chart */} 
+        {/* div with chart */}
         <div className="grid grid-col items-center m-1 py-3 mx-2 mt-[300px] sm:mt-[420px] bg-opacity-60 backdrop-blur-lg drop-shadow-lg justify-center rounded-xl border-[1px]">
-        
-            <PieChart postCount={postCount} templatesCount={templatesCount} componentsCount={componentsCount} cssComponentsCount={cssComponentsCount} />
-            
+
+          <PieChart postCount={postCount} templatesCount={templatesCount} componentsCount={componentsCount} cssComponentsCount={cssComponentsCount} />
+
           <div className="grid grid-col">
             <div className="flex flex-row-1 justify-center items-center py-2">
               <img src={Bricks} alt="bricks icon" className="h-[40px]" />

@@ -1,6 +1,9 @@
 // Basic react import
 import { useEffect, useState } from 'react'
 
+// React Helmet
+import Seo from '../components/Seo'
+
 // Links
 import { Link } from 'react-router-dom'
 
@@ -66,13 +69,20 @@ const BlogPage = () => {
 
         // Whole component
         <div className="bg-slate-100 w-100 pt-40 py-20 flex flex-col justify-center items-center border-[1px] border-slate-300">
+
+            <Seo
+                title='Bricks - Blog'
+                description='Discover our guides. Build the web faster !'
+                name='Bricks-platform'
+                type='blog' />
+
             <h3 className="  text-center  font-extrabold  text-5xl sm:text-6xl text-transparent bg-clip-text bg-gradient-to-r  h-[80px] from-pink-600 to-blue-600 sm:mt-10 sm:my-4 uppercase">Blog</h3>
             <div className='flex'>
                 <img src={Logo} alt="blog Logo" className="w-[25px] h-[25px] mr-1" />
                 <h1 className="-translate-x-2  p-1 font-bold cursor-pointer text-left text-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600">BRICKS</h1>
             </div>
-            <h1 className=" text-slate-500 text-2xl text-center font-semibold m-4">Unlock the full potential of web development. Discover our guides. Build the web <b>faster.</b>
-            </h1>
+            {/* <h1 className=" text-slate-500 text-2xl text-center font-semibold m-4">Discover the guides.<br/> Build the web <b>faster.</b>
+            </h1> */}
 
             {/* Searchbar */}
             <div className='flex justify-center items-center'>

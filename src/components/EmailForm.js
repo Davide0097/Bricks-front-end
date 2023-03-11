@@ -10,11 +10,11 @@ function ContactForm() {
 
             {/* Email */}
             <p className='font-semibold text-slate-800 text-lg p-1'>Your e-mail</p>
-            <p className='font-semibold text-slate-600 text-md pb-1'>* Please provide your email so we can get back to you.</p>
+            <p className='font-semibold text-slate-600 text-md pb-1'>* Please provide your email.</p>
             <input type="text" name="Email:" placeholder="youremail@yourdomain.com" className='bg-gray-100 rounded-lg p-3 mb-7 ' />
 
             {/* Request main text */}
-            <p className='font-semibold text-slate-600 text-md pb-1'>Let us know how you'd like to<b> contribute!</b></p>
+            <p className='font-semibold text-slate-600 text-md pb-1'>Let's team up and make something great <b> together!</b></p>
             <textarea className="bg-gray-100 border rounded-lg min-h-[200px] 2xl:h-[400px] p-3" name="Request" placeholder="Write here..."></textarea>
 
             <button

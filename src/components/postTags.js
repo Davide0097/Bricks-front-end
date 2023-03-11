@@ -41,7 +41,7 @@ const postTags = ({ post }) => {
                     const randomStyle = {
                         backgroundColor: getRandomColor()
                     };
-                    element = <button key={substring} style={randomStyle} className="font-semibold text-sm text-white rounded-md px-2 py-1 m-1">{substring}</button>;
+                    element = <button key={substring} style={randomStyle} className="uppercase font-semibold text-sm text-white rounded-md px-2 py-1 m-1">{substring}</button>;
                 }
                 return element;
             })}

@@ -13,6 +13,9 @@ import { Link } from 'react-router-dom'
 // Rich test
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
+// React helemet
+import Seo from '../components/Seo'
+
 // Component
 import PostTags from "../components/postTags";
 
@@ -95,6 +98,12 @@ const BlogPost = (post) => {
 
     return (
         <>
+            <Seo
+                title={single.postTitle}
+                description={single.postText}
+                name='Bricks-platform'
+                type='blog' />
+
             {loading ? (
                 <div className="px-3 sm:px-40 lg:px-60 text-center font-extrabold text-4xl py-60 text-transparent bg-clip-text bg-gradient-to-r from-slate-700 to-slate-600  ">Loading Post...</div>
             ) : (

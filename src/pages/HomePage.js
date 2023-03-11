@@ -9,6 +9,7 @@ import componentCard from "../media/cards.png"
 import componentButt from "../media/buttons.png"
 import componentOther from "../media/otherscomponents.png"
 import ComponentTitleEditor from "../components/ComponentTitleEditor";
+import Seo from '../components/Seo'
 
 // Components
 import ContactForm from '../components/EmailForm';
@@ -91,6 +92,12 @@ const HomePage = () => {
 
   return (
     <div>
+      <Seo
+        title='Bricks - Home'
+        description='Build the web faster: discover our guides, templates and UI components.'
+        name='Bricks-platform'
+        type='landing page' />
+        
       {showForm && (
         <div className='z-40 fixed py-8 grid grid-cols-1 px-4 md:px-10 justify-center bg-opacity-60 backdrop-blur-lg drop-shadow-lg bg-white mt-[125px] w-full'>
           <ContactForm />
@@ -153,7 +160,7 @@ const HomePage = () => {
               </div>
 
             </div>
-             <div className='border-slate-300 border-[1px] m-3 bg-white bg-gradient-to-r from-slate-200 to-white rounded-xl hover:from-white shadow-xl'>
+            <div className='border-slate-300 border-[1px] m-3 bg-white bg-gradient-to-r from-slate-200 to-white rounded-xl hover:from-white shadow-xl'>
               <h1 className='p-4 font-bold px-2 text-5xl text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'> {authors.length}</h1>
               <h1 className='p-4 pt-1 font-bold px-2 text-3xl text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'>contributors</h1>
               <div className='mt-1 h-[300px] w-[300px] overflow-auto author-showcase'>
@@ -164,7 +171,7 @@ const HomePage = () => {
                   </div>
                 )))}
               </div>
-            </div> 
+            </div>
             <div className='border-slate-300 border-[1px] m-3 bg-white bg-gradient-to-r from-slate-200 to-white rounded-xl hover:from-white shadow-xl'>
               <h1 className='p-4 font-bold px-2 text-5xl text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'>{posts.length}</h1>
               <h1 className='p-4 pt-1 font-bold px-2 text-3xl text-center text-transparent uppercase bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600'>posts</h1>
@@ -220,7 +227,7 @@ const HomePage = () => {
       {/* Components */}
       <div className="2xl:px-40 bg-slate-100 py-20 flex flex-col justify-center items-center h-auto">
         <h1 className="text-4xl font-bold m-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600">Bricks <b className='shadow-xl uppercase bg-black text-white py-1 inline-block px-2'>Components</b></h1>
-        <h1 className="text-slate-700 text-xl pb-10 sm:mx-40 text-center m-4 ">Explore our collection of Tailwind and plain CSS <b>pre-made blocks</b> for constructing <b>SEO-optimized, clean, responsive, and interactive pages.</b>
+        <h1 className="text-slate-700 text-xl pb-10 sm:mx-40 text-center m-4 ">Explore a collection of Tailwind and plain CSS <b>pre-made blocks</b> for constructing <b>SEO-optimized, clean, responsive, and interactive pages.</b>
         </h1>
         <div className="flex flex-col items-center">
           <div>
@@ -248,7 +255,7 @@ const HomePage = () => {
       {/* Templates */}
       <div className="2xl:px-60 bg-slate-100 py-20 flex flex-col justify-center items-center border-[1px] border-slate-300">
         <h1 className=" my-4 font-bold text-4xl m-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600">Bricks <b className='shadow-xl uppercase bg-black text-white py-1 inline-block px-2'>Templates</b></h1>
-        <h1 className="text-slate-700 text-xl pb-10 sm:mx-40 text-center m-4">Explore our collection of templates,<br /> each with its own <b>GitHub repository and comprehensive documentation.</b></h1>
+        <h1 className="text-slate-700 text-xl pb-10 sm:mx-40 text-center m-4">Explore a collection of templates,<br /> each with its own <b>GitHub repository and comprehensive documentation.</b></h1>
         <div className="w-full grid grid-cols-1 2xl:px-40 md:grid-cols-3 mx-2 md:px-40 gap-10 py-10">
           <div className="border border-slate-300 min-w[300px] bg-white rounded-xl m-2 p-4 shadow-xl">
             <h1 className="font-bold">MERN Stack Blog</h1>
@@ -275,8 +282,8 @@ const HomePage = () => {
       <div className="2xl:px-40 bg-white w-100 px-4 sm:px-20 py-20 grid grid-cols-4 gap-0 justify-center items-center border-[1px] border-slate-300">
         <div className="col-span-4 md:col-span-3 lg:col-span-3 sm:px-20 py-2">
           <h1 className="font-bold text-4xl py-6 text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600">Are you passionate about coding and sharing your ideas with the world? </h1>
-          <h1 className="text-slate-800 font-bold text-xl my-2">We are looking for talented contributors for Bricks.</h1>
-          <h1 className="text-slate-700 text-xl my-2"> If you're interested in becoming a part of our community, please get in touch, let us know how you'd like to<b> contribute!</b></h1>
+          <h1 className="text-slate-800 font-bold text-xl my-2">Want to get involved in Bricks and share your skills with others?</h1>
+          <h1 className="text-slate-700 text-xl my-2"> Bricks is on the hunt for talented contributors to join this journey !</h1>
         </div>
         <div className="col-span-4 lg:col-span-1 text-center py-2 justify-center items-center">
           <button onClick={() => { setShowForm(true); }}

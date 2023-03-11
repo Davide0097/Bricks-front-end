@@ -3,6 +3,9 @@ import { useSignup } from '../hooks/useSignup'
 import { Link } from 'react-router-dom'
 import Logo from "../media/logoBlog.png"
 
+// React helemet
+import Seo from '../components/Seo'
+
 const Signup = () => {
 
     const [email, setEmail] = useState("")
@@ -18,6 +21,13 @@ const Signup = () => {
 
     return (
         <div className='2xl:px-40 h-auto pt-[140px] bg-slate-100 flex flex-col lg:grid lg:grid-cols-2 pb-10'>
+
+            <Seo
+                title='Bricks - Sign up'
+                description='Build the web faster: discover our guides, templates and UI components.'
+                name='Bricks-platform'
+                type='landing page' />
+
             <div className=''>
                 <div className=' sm:grid grid-cols-4 gap-2 p-4'>
 

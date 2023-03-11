@@ -1,6 +1,9 @@
 // Use effect e Use state
 import { useEffect, useState } from 'react'
 
+// React helmet
+import Seo from '../components/Seo'
+
 // React parallax
 import { Parallax } from 'react-parallax';
 import { Link } from 'react-router-dom';
@@ -21,6 +24,12 @@ const AboutPage = () => {
 
   return (
     <>
+      <Seo
+        title='Bricks - About us'
+        description='Discover how Bricks aims to be the go-to resource for developers who want to build high-quality web applications.'
+        name='Bricks-platform'
+        type='about' />
+
       {showForm && (
         <div className='z-40 fixed py-8 grid grid-cols-1 px-4 md:px-10 justify-center bg-opacity-60 backdrop-blur-lg drop-shadow-lg bg-white mt-[125px] w-full'>
           <ContactForm />
@@ -55,7 +64,7 @@ const AboutPage = () => {
           strength={200}>
         </Parallax>
         <h3 className="font-bold  text-4xl m-4 sm:text-4xl text-slate-400">YES, BUT...</h3>
-        <h3 className="font-extrabold  text-5xl text-center sm:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600 px-4 ">WHAT IS BRICKS?</h3>
+        <h3 className="font-extrabold  text-5xl text-center sm:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600 px-4 ">WHAT IS BRICKS ?</h3>
       </div>
 
       {/* Paragraph what is bricks? */}
@@ -70,10 +79,9 @@ const AboutPage = () => {
               What is Bricks in this moment ?
             </h3>
             <p className="mt-4 max-w-5xl text-xl leading-7 text-gray-200 lg:mx-auto">
-              <b> Bricks is the starting point for developers who want to build high-quality web applications quickly and efficiently. </b><br />
+              <b>Bricks aims to be the go-to resource for developers who want to build high-quality web applications quickly and efficiently.</b><br />
 
-              Our comprehensive suite of tools includes now <b>templates, components and guides,</b> all aimed at accelerating
-              the development process.<br />
+              Our comprehensive suite of tools includes <b>templates, components, and guides,</b> all designed to accelerate the development process.<br />
             </p>
             <h3 className="mt-6 text-3xl leading-8 font-bold  text-slate-500  tracking-tight sm:text-4xl sm:leading-10">
               Yes but...
@@ -84,9 +92,9 @@ const AboutPage = () => {
             <p className="mt-4 max-w-5xl text-xl leading-7 text-gray-200 lg:mx-auto">
               How does Bricks differentiate itself from the many resources, libraries, and projects available online ?<br />
               Bricks is unique because it is owned and managed by <b>creators </b>themselves.<br /><br />
-              By joining our team, you will have the opportunity to participate in strategic decision-making and shape the future of the platform.
-              You will also be able to contribute to votes on important matters.<br />
 
+              By joining our team, you will have the opportunity to participate and shape the future of the platform.
+              <br />
 
               Being a part of Bricks means being an integral piece of something larger. <br />
               Just as a building relies on individual bricks to come together and form a whole,
@@ -99,12 +107,12 @@ const AboutPage = () => {
             <div className="lg:text-center">
               <p className="text-base leading-6 text-pink-500 font-semibold tracking-wide uppercase">Collaborate</p>
               <h3 className="mt-4 text-3xl leading-8 font-extrabold py-2 my-4 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-white  sm:text-4xl sm:leading-10">
-                Are you ready to be part of something unique?
+                Are you ready to be part of something unique ?
               </h3>
               <Link className="w-[250px] font-semibold my-2 px-6 mt-12 py-3 rounded-md  border-[1px] border-slate-100 hover:border-black hover:bg-black group"
                 to={"/BricksHub"}><button
                 >
-                  <p className="text-slate-200 text-2xl font-bold group-hover:text-white group-hover:font-bold ">Sign up here!</p>
+                  <p className="text-slate-200 text-2xl font-bold group-hover:text-white group-hover:font-bold ">Sign up here !</p>
                 </button></Link>
             </div>
           </div>
@@ -136,14 +144,14 @@ const AboutPage = () => {
           <h3 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-yellow-300 sm:text-4xl sm:leading-10">
             COMPONENTS →          </h3>
           <p className="mt-4 max-w-2xl text-xl leading-7 text-gray-300 lg:mx-auto">
-            Selection of clear, responsive, SEO-friendly, and contrast-optimized <b>UI components </b>styled with plain CSS and Tailwind CSS
+            Selection of clear, responsive, SEO-friendly, and contrast-optimized <b>UI components </b>styled with plain CSS and Tailwind CSS.
           </p>
         </Link>
       </div>
 
       {/* Section */}
       <div className=" py-2 bg-slate-900 px-4 justify-center items-center sm:px-40">
-        <div className="bg-gray-900 max-w-screen-xl mx-auto  sm:px-6 lg:px-8">
+        <div className="bg-slate-900 max-w-screen-xl mx-auto  sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-3 lg:gap-8">
             <div className="lg:col-span-1">
               <p className="text-base leading-6 text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-white font-semibold tracking-wide uppercase">OUR MISSION</p>
@@ -166,7 +174,7 @@ const AboutPage = () => {
                     <div className="ml-4">
                       <h5 className="text-lg leading-6 font-medium text-gray-200">Connetion</h5>
                       <p className="mt-2 text-base leading-6 text-gray-500">
-                        Bricks values creativity and the power it has to inspire and connect people. We believe that every individual has something unique and valuable to offer, and strive to create a platform that supports and amplifies the voices of creators.
+                        Whether you're a seasoned pro or just starting out, Bricks aims to provide you with the tools and support you need to bring your vision to life. So if you're ready to unleash your creativity and make something truly awesome, come join us at Bricks and let's build something amazing together !
                       </p>
                     </div>
                   </div>
@@ -201,8 +209,7 @@ const AboutPage = () => {
                     <div className="ml-4">
                       <h5 className="text-lg leading-6 font-medium text-gray-200">Transparency</h5>
                       <p className="mt-2 text-base leading-6 text-gray-500 mb-20">
-                        As a collaborative platform, we understand the importance of building trust with all members of our community. As such, we are dedicated to being responsible and accountable in our operations and to fostering a sense of reliability and trust among all members of our community
-                      </p>
+                        At Bricks, building trust with our community is a top priority. That's why we strive to be responsible and accountable in everything we do, and to create a culture of reliability and trust among all members.                      </p>
                     </div>
                   </div>
                 </li>

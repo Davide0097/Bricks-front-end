@@ -1,5 +1,5 @@
 // Images
-import Seo from '../media/seo.png'
+import SeoImg from '../media/seo.png'
 import Responsive from '../media/responsive.png'
 import Accessibility from '../media/accessibility.png'
 import Animated from '../media/animated.png'
@@ -7,6 +7,9 @@ import Logo from '../media/logoBlog.png'
 
 // Use effect and Use state
 import { useEffect, useState } from 'react'
+
+// React helemet
+import Seo from '../components/Seo'
 
 // Links
 import { Link } from 'react-router-dom'
@@ -50,6 +53,11 @@ const TemplatesPage = () => {
 
     return (
         <div >
+            <Seo
+                title='Bricks - Templates collection'
+                description='Discover our templates. Build the web faster !'
+                name='Bricks-platform'
+                type='blog' />
 
             {/* Contact Form */}
             {showForm && (
@@ -70,8 +78,7 @@ const TemplatesPage = () => {
                     <img src={Logo} alt="blog Logo" className="w-[25px] h-[25px] mr-1 " />
                     <h1 className="-translate-x-2  p-1 font-bold cursor-pointer text-left text-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600">BRICKS</h1>
                 </div>
-                <h1 className=" text-slate-500 text-2xl text-center font-semibold my-4">Browse around our <b>templates.</b>
-                </h1>
+                {/* <h1 className=" text-slate-500 text-2xl text-center font-semibold my-4">Browse around our <b>templates.</b>    </h1>*/}
 
                 {/* templates */}
                 <div className="2xl:px-[400px]  grid grid-cols-2 px-2 sm:px-40 lg:grid-cols-4 py-8">
@@ -81,7 +88,7 @@ const TemplatesPage = () => {
                         <p className="text-slate-200 text-xl  text-center font-semibold px-1">Easy integration</p>
                     </div>
                     <div className="flex flex-col justify-center items-center py-2 lg:px-2">
-                        <img src={Seo} alt="Seo icon" className="w-[25px] h-[25px]" />
+                        <img src={SeoImg} alt="Seo icon" className="w-[25px] h-[25px]" />
                         <h1 className="text-2xl  text-center font-semibold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600"> <b>SEO </b></h1>
                         <p className=" text-slate-500 text-xl  text-center font-semibold px-1">Optimized for search engines</p>
                     </div>
@@ -148,8 +155,8 @@ const TemplatesPage = () => {
             {/* Contacts section */}
             <div className="bg-white w-100 px-4   py-20 gap-2 lg:px-60 grid grid-cols-4 border-slate-300">
                 <div className=" col-span-4 lg:col-span-3 ">
-                    <h3 className="text-black font-extrabold text-3xl m-2"> Contribute to Bricks and become a part of our community.</h3>
-                    <h1 className="text-slate-700 m-2">By sending us your templates, you can help us create the <b>best platform for web development.</b> As a contributor, you will be featured in the contributors section on our website.<br /><b> Join us in building the future of web development with Bricks.</b></h1>
+                    <h3 className="text-black font-extrabold text-3xl m-2"> Contribute to Bricks and become a part of the community.</h3>
+                    <h1 className="text-slate-700 m-2">By sending your templates, you can help create the <b>best platform for web development.</b> As a contributor, you will be featured in the contributors section on our website.<br /><b> Join Bricks in building the future of web development.</b></h1>
                 </div>
                 <div className="col-span-4 lg:col-span-1 justify-center items-center text-center grid grid-cols-1 p-2">
                     <button onClick={() => {

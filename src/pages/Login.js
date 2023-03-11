@@ -1,5 +1,8 @@
 import { useState } from 'react'
 
+// React helemet
+import Seo from '../components/Seo'
+
 import { useLogin } from '../hooks/useLogIn'
 
 import { Link } from 'react-router-dom';
@@ -22,6 +25,12 @@ const Login = () => {
 
     return (
         <div className='2xl:px-40 pt-[140px] bg-slate-100 h-auto flex flex-col lg:grid lg:grid-cols-2 pb-10'>
+
+            <Seo
+                title='Bricks - Log in'
+                description='Build the web faster: discover our guides, templates and UI components.'
+                name='Bricks-platform'
+                type='landing page' />
 
             <div className=''>
                 <div className=' sm:grid grid-cols-4 gap-2 p-4'>

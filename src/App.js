@@ -1,5 +1,8 @@
 import './index.css';
 
+// React helmet
+import { HelmetProvider } from 'react-helmet-async';
+
 import ScrollToTop from './hooks/useScroll';
 
 // React router
@@ -27,7 +30,7 @@ import Signup from './pages/Signup';
 import BricksHub from './pages/BricksHub'
 import RequirmentsPage from "./pages/RequirmentsPage"
 import PageNotFound from './pages/PageNotFound';
-import SiteBuilder from './pages/SiteBuilder'; 
+import SiteBuilder from './pages/SiteBuilder';
 
 // Cookies
 import CookiesModal from './components/CookiesModal';
@@ -39,32 +42,31 @@ function App() {
 
   return (
     <div className="App">
-      <CookiesModal />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<HomePage />}></Route>
-          <Route path='/BlogPage' element={<BlogPage />}></Route>
-          <Route path='/ComponentPage' element={<ComponentsPage />}></Route>
-          <Route path='/TemplatesPage' element={<TemplatesPage />}></Route>
-          <Route path='/BlogPost/:index' element={<BlogPost />}></Route>
-          <Route path='/AboutPage' element={<AboutPage />}></Route>
-          <Route path='/AuthorPage/:index' element={<AuthorPage />}></Route>
-          <Route path='/RequirmentsPage' element={<RequirmentsPage />}></Route>
-          <Route path='/SiteBuilder' element={<SiteBuilder />}></Route> 
-
-          {/* if we have user we directly go to creator hub if we dont have user we go to login */}
-          <Route path='/BricksHub' element={user ? <BricksHub /> : <Login />}></Route>
-          <Route path="/signup" element={!user ? <Signup /> : <Navigate to="/BricksHub" />} />
-          <Route path='/login' element={!user ? <Login /> : <BricksHub />}></Route>
-
-          {/* Page not found */}
-          <Route path='*' element={<PageNotFound />} > </Route>
-
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <HelmetProvider>
+        <CookiesModal />
+        <BrowserRouter>
+          <ScrollToTop />
+          <Navbar />
+          <Routes>
+            <Route path='/' element={<HomePage />}></Route>
+            <Route path='/BlogPage' element={<BlogPage />}></Route>
+            <Route path='/ComponentPage' element={<ComponentsPage />}></Route>
+            <Route path='/TemplatesPage' element={<TemplatesPage />}></Route>
+            <Route path='/BlogPost/:index' element={<BlogPost />}></Route>
+            <Route path='/AboutPage' element={<AboutPage />}></Route>
+            <Route path='/AuthorPage/:index' element={<AuthorPage />}></Route>
+            <Route path='/RequirmentsPage' element={<RequirmentsPage />}></Route>
+            <Route path='/SiteBuilder' element={<SiteBuilder />}></Route>
+            {/* if we have user we directly go to creator hub if we dont have user we go to login */}
+            <Route path='/BricksHub' element={user ? <BricksHub /> : <Login />}></Route>
+            <Route path="/signup" element={!user ? <Signup /> : <Navigate to="/BricksHub" />} />
+            <Route path='/login' element={!user ? <Login /> : <BricksHub />}></Route>
+            {/* Page not found */}
+            <Route path='*' element={<PageNotFound />} > </Route>
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </HelmetProvider>
     </div>
   );
 }

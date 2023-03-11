@@ -23,6 +23,9 @@ import useContentfulComponents from '../hooks/useContentfulComponents'
 import useContentfulAuthors from "../hooks/useContentfulAuthors"
 import useContentfulCssComponents from '../hooks/useContentfulCssComponents'
 
+// React helemet
+import Seo from '../components/Seo'
+
 // UseState and useEffect
 import { useState, useEffect } from 'react'
 
@@ -159,6 +162,12 @@ const BricksHub = () => {
    return (
       <>
          <div className="pt-[130px] bg-slate-800 flex flex-row 2xl:pr-80  2xl:pl-40">
+
+            <Seo
+               title='Bricks Hub'
+               description='Join the contributors dashboard.'
+               name='Bricks-platform'
+               type='landing page' />
 
             {/* SideBar */}
             <div className='bg-slate-800 md:w-[170px] flex flex-col items-center '>

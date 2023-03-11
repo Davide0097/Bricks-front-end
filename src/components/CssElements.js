@@ -156,7 +156,7 @@ const CssElements = () => {
                                             setShowFullPage(true);
                                             navigateToDiv();
                                         }}
-                                        className="shadow-xl border border-slate-300 max-[640px]:w-[300px] sm:min-w-[210px] bg-gradient-to-r from-slate-200 to-white rounded-xl p-2 hover:from-white">
+                                        className="shadow-xl cursor-pointer border border-slate-300 max-[640px]:w-[300px] sm:min-w-[210px] bg-gradient-to-r from-slate-200 to-white rounded-xl p-2 hover:from-white">
                                         <img className="object-cover rounded-lg aspect-w-4 aspect-h-3"
                                             src={component.componentPreview.fields.file.url} alt="css component Preview" />
                                         <p className="bg-slate-100  font-bold float-right m-2 border-[1px] text-sm text-slate-500 p-1 rounded-md">CSS</p>

@@ -6,7 +6,7 @@ const Footer = () => {
 
   return (
     <div>
-      <footer className=" w-full absolute px-4 sm:px-20 md:px-40 lg:px-60 grid grid-cols-4 gap-0 md:gap-10 z-10 py-10 ">
+      <footer className=" w-full z-50 px-4 sm:px-20 md:px-40 lg:px-60 grid grid-cols-4 gap-0 md:gap-10 py-10 ">
         <div className="max-w-[250px] p-2 col-span-4 sm:col-span-1">
           <h1 className="text-slate-900 font-medium ">General resources</h1>
           <Link to="/">
