@@ -1,8 +1,7 @@
 // Images
 import SeoImg from '../media/seo.png'
 import Responsive from '../media/responsive.png'
-import Accessibility from '../media/accessibility.png'
-import Animated from '../media/animated.png'
+import Animated from '../media/clean.png'
 import Logo from '../media/logoBlog.png'
 
 // Use effect and Use state
@@ -81,21 +80,16 @@ const TemplatesPage = () => {
                 {/* <h1 className=" text-slate-500 text-2xl text-center font-semibold my-4">Browse around our <b>templates.</b>    </h1>*/}
 
                 {/* templates */}
-                <div className="2xl:px-[400px]  grid grid-cols-2 px-2 sm:px-40 lg:grid-cols-4 py-8">
-                    <div className="flex flex-col justify-center items-center bg-slate-900 border-1px rounded-xl py-2 lg:px-2">
-                        <img src={Animated} alt="Interactive icon" className="w-[29px] h-[29px]" />
-                        <h1 className="text-2xl text-center font-semibold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600"> <b>Versatile</b></h1>
-                        <p className="text-slate-200 text-xl  text-center font-semibold px-1">Easy integration</p>
+                <div className="2xl:px-[400px]  grid grid-cols-2 px-2 sm:px-40 lg:grid-cols-3 py-8">
+                <div className="flex flex-col justify-center items-center py-2 lg:px-2">
+                       <img src={Animated} alt="versatile icon" className="w-[29px] h-[29px]" />
+                       <h1 className="text-2xl  text-center font-semibold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600"><b>Versatile</b></h1>
+                        <p className="text-slate-500 text-xl  text-center font-semibold px-1">Easy integration</p>
                     </div>
                     <div className="flex flex-col justify-center items-center py-2 lg:px-2">
                         <img src={SeoImg} alt="Seo icon" className="w-[25px] h-[25px]" />
                         <h1 className="text-2xl  text-center font-semibold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600"> <b>SEO </b></h1>
                         <p className=" text-slate-500 text-xl  text-center font-semibold px-1">Optimized for search engines</p>
-                    </div>
-                    <div className="flex flex-col justify-center items-center py-2 lg:px-2">
-                        <img src={Accessibility} alt="Aria Tag icon" className="w-[29px] h-[29px]" />
-                        <h1 className="text-2xl text-center font-semibold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-blue-600"> <b>Aria Tags</b></h1>
-                        <p className="text-slate-500 text-xl  text-center font-semibold px-1">ARIA tags to enhance accessibility</p>
                     </div>
                     <div className="flex flex-col justify-center items-center py-2 lg:px-2">
                         <img src={Responsive} alt="Responsive icon" className="w-[29px] h-[29px]" />
@@ -116,8 +110,8 @@ const TemplatesPage = () => {
                                     className="shadow-xl border border-slate-300 min-w[300px] bg-gradient-to-r from-slate-200 to-white rounded-xl p-4">
                                     <img src={template.templatePreview.fields.file.url} alt="blog Logo" className="w-full rounded-xl mb-3" />
                                     <h1 className="font-bold p-1" >{template.templateTitle}</h1>
-                                    <h1 className="text-slate-700 p-1" >{template.templateDescription}</h1>
-                                    <div className="w-100 flex flex-col pt-10 justify-right items-right">
+                                    <h1 className="text-slate-700 min-h-[100px] p-1" >{template.templateDescription}</h1>
+                                    <div className="w-100 flex flex-col  pt-10 justify-right items-right">
                                         <a rel="noreferrer" target="_blank" href={`${template.templateBlogLink}`}><button className=" w-[100px] float-right  mb-2 bg-white font-semibold -translate-y-1 rounded-md  border-[1px] border-slate-400 hover:border-black">
                                             <p className="p-1  px-2 text-slate-600">Blog →</p></button>
                                         </a>
